@@ -1,0 +1,1106 @@
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:53:51 +0100
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:54:17 +0100
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:56:41 +0100
+Processing by UsersController#index as HTML
+Completed 500 Internal Server Error in 8ms
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:57:09 +0100
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 17ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+Started GET "/" for 127.0.0.1 at 2015-03-05 19:59:06 +0100
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-05 19:59:07 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-05 19:59:07 +0100
+Started GET "/users" for 127.0.0.1 at 2015-03-05 20:01:00 +0100
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-05 20:01:00 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-05 20:01:00 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 20:07:48 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 20:08:21 +0100
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 21:40:44 +0100
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 21:41:20 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 21:44:59 +0100
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 55ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 21:45:49 +0100
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 52ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 21:46:35 +0100
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 56ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 21:47:15 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.1ms)
+  Rendered users/new.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 103ms (Views: 60.2ms | ActiveRecord: 1.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-05 21:47:16 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-05 21:47:16 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 22:54:50 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (60.4ms)
+  Rendered users/new.html.erb within layouts/application (64.8ms)
+Completed 500 Internal Server Error in 95ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:04:06 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (59.8ms)
+  Rendered users/new.html.erb within layouts/application (63.8ms)
+Completed 500 Internal Server Error in 91ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:07:44 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (25.7ms)
+  Rendered users/new.html.erb within layouts/application (29.8ms)
+Completed 500 Internal Server Error in 97ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:09:43 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (28.1ms)
+  Rendered users/new.html.erb within layouts/application (32.3ms)
+Completed 500 Internal Server Error in 90ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:11:03 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (55.9ms)
+  Rendered users/new.html.erb within layouts/application (60.2ms)
+Completed 200 OK in 102ms (Views: 82.0ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-05 23:11:03 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-05 23:11:03 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:14:17 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.4ms)
+  Rendered users/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 99ms (Views: 43.2ms | ActiveRecord: 1.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-05 23:14:17 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-05 23:14:17 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:14:17 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:14:41 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.0ms)
+  Rendered users/new.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 93ms (Views: 40.6ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-05 23:14:41 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-05 23:14:41 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-05 23:14:41 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:44:00 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (80.5ms)
+  Rendered users/new.html.erb within layouts/application (85.3ms)
+Completed 200 OK in 135ms (Views: 113.6ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:44:01 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:44:01 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:44:01 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:44:33 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.9ms)
+  Rendered users/new.html.erb within layouts/application (26.4ms)
+Completed 200 OK in 103ms (Views: 43.5ms | ActiveRecord: 1.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:44:33 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:44:33 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:44:33 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:45:26 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (53.8ms)
+  Rendered users/new.html.erb within layouts/application (58.2ms)
+Completed 200 OK in 95ms (Views: 74.8ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:45:26 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:45:26 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:45:26 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:46:35 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (69.2ms)
+  Rendered users/new.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 119ms (Views: 96.4ms | ActiveRecord: 1.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:46:36 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:46:36 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:46:36 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:48:45 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.0ms)
+  Rendered users/new.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 101ms (Views: 42.9ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:48:46 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:48:46 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:48:46 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:49:13 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.7ms)
+  Rendered users/new.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 92ms (Views: 41.2ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:49:13 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:49:13 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:49:13 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:49:55 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.5ms)
+  Rendered users/new.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 95ms (Views: 40.8ms | ActiveRecord: 1.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:49:55 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:49:55 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:49:55 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:50:29 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.3ms)
+  Rendered users/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 102ms (Views: 42.6ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 07:50:29 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 07:50:29 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 07:50:29 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:08:35 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.2ms)
+  Rendered users/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 111ms (Views: 57.2ms | ActiveRecord: 4.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:08:36 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:08:36 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:08:36 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:08:36 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:13:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (22.2ms)
+  Rendered users/new.html.erb within layouts/application (27.9ms)
+Completed 200 OK in 102ms (Views: 52.5ms | ActiveRecord: 1.3ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:13:19 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:13:19 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:13:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:13:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:13:19 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:15:31 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.8ms)
+  Rendered users/new.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 95ms (Views: 41.8ms | ActiveRecord: 1.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:15:31 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:15:31 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:15:31 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:15:32 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:15:32 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:16:13 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.0ms)
+  Rendered users/new.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 93ms (Views: 40.5ms | ActiveRecord: 2.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:16:14 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:16:14 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:16:14 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:16:14 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:16:14 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:16:34 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.6ms)
+  Rendered users/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 96ms (Views: 42.4ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:16:34 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:16:34 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:16:34 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:16:34 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:16:34 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:26:33 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (22.7ms)
+  Rendered users/new.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 102ms (Views: 49.2ms | ActiveRecord: 1.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:26:33 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:26:33 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:26:33 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:26:33 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:26:33 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:27:50 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.3ms)
+  Rendered users/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 101ms (Views: 42.7ms | ActiveRecord: 2.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:27:50 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:27:50 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:27:50 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:27:50 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:27:50 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:28:53 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.5ms)
+  Rendered users/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 97ms (Views: 42.0ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:28:54 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:28:54 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:28:54 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:28:54 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:28:54 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.3ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.3ms)
+  Rendered users/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 92ms (Views: 41.4ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.6ms)
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-1faca618b370e1cc3e38cd2798320563.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-1faca618b370e1cc3e38cd2798320563.jpg"], ["created_at", "2015-03-06 10:54:26.702053"], ["name", "David"], ["updated_at", "2015-03-06 10:54:26.702053"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:54292/users/1
+Completed 302 Found in 17ms (ActiveRecord: 2.2ms)
+Started GET "/users/1" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-1faca618b370e1cc3e38cd2798320563.jpg" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:54:26 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:09 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (30.8ms)
+  Rendered users/new.html.erb within layouts/application (214.1ms)
+Completed 200 OK in 482ms (Views: 428.8ms | ActiveRecord: 1.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"", "avatar_url"=>"public-3e0a4004b1d696b24b9b967f85f5ac23.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-3e0a4004b1d696b24b9b967f85f5ac23.jpg"], ["created_at", "2015-03-06 10:58:10.782607"], ["name", ""], ["updated_at", "2015-03-06 10:58:10.782607"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:54563/users/2
+Completed 302 Found in 17ms (ActiveRecord: 1.8ms)
+Started GET "/users/2" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+Started GET "/uploads/public-3e0a4004b1d696b24b9b967f85f5ac23.jpg" for 127.0.0.1 at 2015-03-06 11:58:10 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:42 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.4ms)
+  Rendered users/new.html.erb within layouts/application (23.9ms)
+Completed 200 OK in 97ms (Views: 42.2ms | ActiveRecord: 2.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:58:43 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:58:43 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:43 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:58:43 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:58:43 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.7ms)
+  Rendered users/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 95ms (Views: 43.6ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.2ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:59:05 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:07 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.6ms)
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:39 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (24.6ms)
+  Rendered users/new.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 317ms (Views: 266.5ms | ActiveRecord: 1.8ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 10:59:40.466340"], ["name", "David"], ["updated_at", "2015-03-06 10:59:40.466340"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:54685/users/3
+Completed 302 Found in 63ms (ActiveRecord: 3.0ms)
+Started GET "/users/3" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+Started GET "/uploads/" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 11:59:40 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:45:39 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (26.2ms)
+  Rendered users/new.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 452ms (Views: 395.4ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 11:45:40.544114"], ["name", "David"], ["updated_at", "2015-03-06 11:45:40.544114"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 8ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (39.1ms)
+  Rendered users/new.html.erb within layouts/application (39.5ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 12:45:40 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:46:33 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.9ms)
+  Rendered users/new.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 94ms (Views: 42.3ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 11:46:34.130758"], ["name", "David"], ["updated_at", "2015-03-06 11:46:34.130758"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 7ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (3.2ms)
+  Rendered users/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 12:46:34 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:48:15 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.1ms)
+  Rendered users/new.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 96ms (Views: 41.6ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 11:48:16.139847"], ["name", "David"], ["updated_at", "2015-03-06 11:48:16.139847"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 45ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 12:48:16 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:14:13 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (37.0ms)
+  Rendered users/new.html.erb within layouts/application (44.3ms)
+Completed 200 OK in 156ms (Views: 82.8ms | ActiveRecord: 3.8ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 16:14:14.550846"], ["name", "David"], ["updated_at", "2015-03-06 16:14:14.550846"]]
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 47ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 17:14:14 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:20:42 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.9ms)
+  Rendered users/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 103ms (Views: 46.0ms | ActiveRecord: 1.5ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 17:20:43 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 17:20:43 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:20:43 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:20:43 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 17:20:43 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.5ms)
+  Rendered users/new.html.erb within layouts/application (24.0ms)
+Completed 200 OK in 95ms (Views: 43.7ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 16:21:01.557293"], ["name", "David"], ["updated_at", "2015-03-06 16:21:01.557293"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 9ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 17:21:01 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.5ms)
+  Rendered users/new.html.erb within layouts/application (26.1ms)
+Completed 200 OK in 99ms (Views: 46.8ms | ActiveRecord: 2.2ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 17:03:25.915344"], ["name", "David"], ["updated_at", "2015-03-06 17:03:25.915344"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 46ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:03:25 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:03:26 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.9ms)
+  Rendered users/new.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 99ms (Views: 45.8ms | ActiveRecord: 1.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-ead5aac067b7a860706da04f5a7e5441.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-ead5aac067b7a860706da04f5a7e5441.jpg"], ["created_at", "2015-03-06 17:06:52.625907"], ["name", "David"], ["updated_at", "2015-03-06 17:06:52.625907"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 7ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:06:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:07:51 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.5ms)
+  Rendered users/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 98ms (Views: 42.4ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-f3c806603c981ecc6217b3700a3e9f6f.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-f3c806603c981ecc6217b3700a3e9f6f.jpg"], ["created_at", "2015-03-06 17:07:52.335394"], ["name", "David"], ["updated_at", "2015-03-06 17:07:52.335394"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:49866/users/11
+Completed 302 Found in 19ms (ActiveRecord: 1.8ms)
+Started GET "/users/11" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered users/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-f3c806603c981ecc6217b3700a3e9f6f.jpg" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:07:52 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.8ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.7ms)
+  Rendered users/new.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 104ms (Views: 45.0ms | ActiveRecord: 2.0ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 17:11:04.730596"], ["name", "David"], ["updated_at", "2015-03-06 17:11:04.730596"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50083/users/12
+Completed 302 Found in 57ms (ActiveRecord: 2.4ms)
+Started GET "/users/12" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 12]]
+  Rendered users/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 30ms (Views: 13.2ms | ActiveRecord: 0.3ms)
+Started GET "/uploads/" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:11:04 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:11:05 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:12:11 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.7ms)
+  Rendered users/new.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 99ms (Views: 43.2ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 17:12:12.367280"], ["name", "David"], ["updated_at", "2015-03-06 17:12:12.367280"]]
+  [1m[36m (5.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 54ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (4.9ms)
+  Rendered users/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:12:12 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.3ms)
+  Rendered users/new.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 96ms (Views: 41.0ms | ActiveRecord: 1.7ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.3ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-624319d2a283a42b86116b2101d873c0.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-624319d2a283a42b86116b2101d873c0.jpg"], ["created_at", "2015-03-06 17:14:47.805761"], ["name", "David"], ["updated_at", "2015-03-06 17:14:47.805761"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50329/users/14
+Completed 302 Found in 17ms (ActiveRecord: 1.9ms)
+Started GET "/users/14" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 14]]
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-624319d2a283a42b86116b2101d873c0.jpg" for 127.0.0.1 at 2015-03-06 18:14:47 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (19.9ms)
+  Rendered users/new.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 101ms (Views: 43.3ms | ActiveRecord: 1.9ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>""}, "commit"=>"Create User"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", ""], ["created_at", "2015-03-06 17:15:19.503574"], ["name", "David"], ["updated_at", "2015-03-06 17:15:19.503574"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 8ms
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:19 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.1ms)
+  Rendered users/new.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 96ms (Views: 42.3ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.1ms)
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 3ms (Views: 3.0ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-b6c58b49ba24eb2d0df70c00d4ee6bf8.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-b6c58b49ba24eb2d0df70c00d4ee6bf8.jpg"], ["created_at", "2015-03-06 17:15:55.478542"], ["name", "David"], ["updated_at", "2015-03-06 17:15:55.478542"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50416/users/16
+Completed 302 Found in 16ms (ActiveRecord: 2.3ms)
+Started GET "/users/16" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 16]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-b6c58b49ba24eb2d0df70c00d4ee6bf8.jpg" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:15:55 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.9ms)
+  Rendered users/new.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 97ms (Views: 45.3ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:16:48 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-0a1e9d1a153725bfcf8c2183c6480cb5.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-0a1e9d1a153725bfcf8c2183c6480cb5.jpg"], ["created_at", "2015-03-06 17:16:48.999044"], ["name", "David"], ["updated_at", "2015-03-06 17:16:48.999044"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50481/users/17
+Completed 302 Found in 18ms (ActiveRecord: 1.9ms)
+Started GET "/users/17" for 127.0.0.1 at 2015-03-06 18:16:49 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 17]]
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-0a1e9d1a153725bfcf8c2183c6480cb5.jpg" for 127.0.0.1 at 2015-03-06 18:16:49 +0100
+Started GET "/uploads/public-0a1e9d1a153725bfcf8c2183c6480cb5.jpg" for 127.0.0.1 at 2015-03-06 18:16:49 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:16:49 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.9ms)
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:16:49 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (20.4ms)
+  Rendered users/new.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 108ms (Views: 45.6ms | ActiveRecord: 7.4ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.4ms)
+  Rendered users/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 2ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-bfe67e60978bc28cb5a2c9ea56b03007.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-bfe67e60978bc28cb5a2c9ea56b03007.jpg"], ["created_at", "2015-03-06 17:21:06.932221"], ["name", "David"], ["updated_at", "2015-03-06 17:21:06.932221"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50799/users/18
+Completed 302 Found in 18ms (ActiveRecord: 2.5ms)
+Started GET "/users/18" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 18]]
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 7ms (Views: 2.8ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-bfe67e60978bc28cb5a2c9ea56b03007.jpg" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Started GET "/uploads/public-bfe67e60978bc28cb5a2c9ea56b03007.jpg" for 127.0.0.1 at 2015-03-06 18:21:06 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:44 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.6ms)
+  Rendered users/new.html.erb within layouts/application (26.0ms)
+Completed 200 OK in 96ms (Views: 43.6ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-e30684bcc747b19071a3ab3aace953bb.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-e30684bcc747b19071a3ab3aace953bb.jpg"], ["created_at", "2015-03-06 17:21:45.368413"], ["name", "David"], ["updated_at", "2015-03-06 17:21:45.368413"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50847/users/19
+Completed 302 Found in 15ms (ActiveRecord: 2.2ms)
+Started GET "/users/19" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 19]]
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+Started GET "/uploads/public-e30684bcc747b19071a3ab3aace953bb.jpg" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Started GET "/uploads/public-e30684bcc747b19071a3ab3aace953bb.jpg" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2.0ms)
+  Rendered users/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 3ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:21:45 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.5ms)
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (21.1ms)
+  Rendered users/new.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 106ms (Views: 51.1ms | ActiveRecord: 1.6ms)
+Started GET "/assets/application.css" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.7ms)
+  Rendered users/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Started POST "/users" for 127.0.0.1 at 2015-03-06 18:22:45 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"name"=>"David", "avatar_url"=>"public-0a045208183cee973736a5f62aefa93b.jpg"}, "commit"=>"Create User"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "users" ("avatar_url", "created_at", "name", "updated_at") VALUES (?, ?, ?, ?)  [["avatar_url", "public-0a045208183cee973736a5f62aefa93b.jpg"], ["created_at", "2015-03-06 17:22:45.988324"], ["name", "David"], ["updated_at", "2015-03-06 17:22:45.988324"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:50922/users/20
+Completed 302 Found in 16ms (ActiveRecord: 2.0ms)
+Started GET "/users/20" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 20]]
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Started GET "/uploads/public-0a045208183cee973736a5f62aefa93b.jpg" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Started GET "/uploads/public-0a045208183cee973736a5f62aefa93b.jpg" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.6ms)
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Started GET "/users/new" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (1.3ms)
+  Rendered users/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+Started GET "/assets/application.js" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
+Started POST "/uploads/public-upload" for 127.0.0.1 at 2015-03-06 18:22:46 +0100
