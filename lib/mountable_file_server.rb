@@ -14,7 +14,8 @@ module MountableFileServer
 
   require "mountable_file_server/backend"
   require "mountable_file_server/engine"
-  require "mountable_file_server/helper"
+  require "mountable_file_server/access_helper"
+  require "mountable_file_server/storage_helper"
 
   class << self
     def public_upload_url
