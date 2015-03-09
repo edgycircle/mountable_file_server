@@ -1,12 +1,6 @@
-require 'minitest_helper'
+require 'acceptance_helper'
 
-class TestSomething < MiniTest::Test
-  def test_the_cake_is_a_lie
-    assert true
-  end
-end
-
-class TestSomethingTwo < AcceptanceTestCase
+class TestFormInteractions < AcceptanceTestCase
   def test_form_helper_adds_markup
     visit "/users/new"
 
