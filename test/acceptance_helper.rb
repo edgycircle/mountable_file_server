@@ -10,6 +10,7 @@ require 'capybara/rails'
 require 'capybara/poltergeist'
 
 Capybara.current_driver = :poltergeist
+# ActionController::Base.allow_forgery_protection = true
 
 module PathHelper
   def path(filename)

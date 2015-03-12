@@ -32,7 +32,10 @@ function uploadFile(file, input) {
   });
 
   formData.append('file', file);
-  // formData.append('_csrf_token', csrfElement.value);
+
+  if (csrfElement) {
+    formData.append('_csrf_token', csrfElement.value);
+  }
 
   xhr.send(formData);
   dispatchEvent(input, 'upload:start', { file: file });
