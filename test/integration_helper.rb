@@ -19,4 +19,11 @@ class IntegrationTestCase < MiniTest::Test
   def app
     MountableFileServer::Backend.new
   end
+
+  def setup
+    MountableFileServer.configure do |config|
+      config.stored_at = File.expand_path('../../tmp/test-uploads/', __FILE__)
+      config.root = ''
+    end
+  end
 end

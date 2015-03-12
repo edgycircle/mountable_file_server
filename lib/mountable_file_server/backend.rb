@@ -10,19 +10,23 @@ module MountableFileServer
     end
 
     post '/public-upload' do
-      extension = File.extname params[:file][:filename]
-      visibility_prefix = 'public'
-      random_filename = generate_filename(visibility_prefix, extension)
-
-      File.open(File.join(temporary_directoryname, random_filename), 'wb') do |file|
-        file.write params[:file][:tempfile].read
-      end
-
-      random_filename
+      process_file_upload(params[:file])
     end
 
     get '/*' do
       deliver_upload unescape(request.path_info)
+    end
+
+    def process_file_upload(file_parameters)
+      extension = File.extname file_parameters[:filename]
+      visibility_prefix = 'public'
+      random_filename = generate_filename(visibility_prefix, extension)
+
+      File.open(File.join(temporary_directoryname, random_filename), 'wb') do |file|
+        file.write file_parameters[:tempfile].read
+      end
+
+      random_filename
     end
 
     # process_file_request

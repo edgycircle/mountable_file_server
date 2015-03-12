@@ -21,4 +21,10 @@ end
 class AcceptanceTestCase < MiniTest::Test
   include Capybara::DSL
   include PathHelper
+
+  def setup
+    MountableFileServer.configure do |config|
+      config.stored_at = File.expand_path('../rails-dummy/uploads/', __FILE__)
+    end
+  end
 end

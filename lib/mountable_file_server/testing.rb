@@ -41,6 +41,7 @@ module MountableFileServer
 
   class Backend
     alias_method :original_deliver_upload, :deliver_upload
+    alias_method :original_process_file_upload, :process_file_upload
 
     def deliver_upload(name)
       path_to_upload = File.expand_path("#{MountableFileServer::Testing.fixture_pathname}#{name}")
@@ -49,6 +50,14 @@ module MountableFileServer
         send_file path_to_upload
       else
         original_deliver_upload name
+      end
+    end
+
+    def process_file_upload(file_parameters)
+      if MountableFileServer::Testing.fake?
+        'public-fake.png'
+      else
+        original_process_file_upload file_parameters
       end
     end
   end

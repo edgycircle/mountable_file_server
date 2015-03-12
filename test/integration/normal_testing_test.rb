@@ -1,15 +1,11 @@
 require 'integration_helper'
 require 'mountable_file_server/testing'
 
-MountableFileServer.configure do |config|
-  config.stored_at = File.expand_path('../../../tmp/test-uploads/', __FILE__)
-  config.root = ''
-end
-
 class TestNormalTesting < IntegrationTestCase
   include MountableFileServer::StorageHelper
 
   def setup
+    super
     MountableFileServer::Testing.enable!
   end
 
