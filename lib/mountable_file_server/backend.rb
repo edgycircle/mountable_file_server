@@ -2,9 +2,6 @@ require "sinatra"
 
 module MountableFileServer
   class Backend < Sinatra::Base
-    # set :static, true
-    # set :public_folder, Proc.new { File.join(MountableFileServer.configuration.root, MountableFileServer.configuration.stored_at, 'public') }
-
     def initialize
       super
 
@@ -25,32 +22,20 @@ module MountableFileServer
     end
 
     get '/*' do
-      params[:splat]
-
-      path = File.expand_path("#{File.join(MountableFileServer.configuration.root, MountableFileServer.configuration.stored_at, 'public')}#{unescape(request.path_info)}")
-
-      if File.file?(path)
-        send_file path
-      else
-        File.basename path
-      end
+      deliver_upload unescape(request.path_info)
     end
 
-    # not_found do
-    #   "LOL"
-    # end
+    # process_file_request
+    # process_file_upload
+    def deliver_upload(name)
+      path_to_upload = File.expand_path("#{File.join(MountableFileServer.configuration.root, MountableFileServer.configuration.stored_at, 'public')}#{name}")
 
-    # def static!(options = {})
-    #   return if (public_dir = settings.public_folder).nil?
-    #   path = File.expand_path("#{public_dir}#{unescape(request.path_info)}" )
-    #   return unless File.file?(path)
-
-    #   env['sinatra.static_file'] = path
-    #   cache_control(*settings.static_cache_control) if settings.static_cache_control?
-    #   send_file path, options.merge(:disposition => nil)
-    # end
-
-
+      if File.file?(path_to_upload)
+        send_file path_to_upload
+      else
+        pass
+      end
+    end
 
     private
     def generate_filename(visibility_prefix, extension)

@@ -12,11 +12,6 @@ module PathHelper
   end
 end
 
-MountableFileServer.configure do |config|
-  config.stored_at = File.expand_path('../../tmp/test-uploads/', __FILE__)
-  config.root = ''
-end
-
 class IntegrationTestCase < MiniTest::Test
   include Rack::Test::Methods
   include PathHelper
