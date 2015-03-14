@@ -3,7 +3,7 @@ require 'mountable_file_server'
 module MountableFileServer
   class Testing
     class << self
-      attr_accessor :mode, :fixture_pathname
+      attr_accessor :mode, :fixture_pathname, :fake_upload
 
       def disable!
         self.mode = :disabled
@@ -44,12 +44,16 @@ module MountableFileServer
     alias_method :original_process_file_upload, :process_file_upload
 
     def deliver_upload(name)
-      path_to_upload = File.expand_path("#{MountableFileServer::Testing.fixture_pathname}#{name}")
-
-      if File.file?(path_to_upload)
-        send_file path_to_upload
+      if MountableFileServer::Testing.fake?
+        send_file MountableFileServer::Testing.fake_upload
       else
-        original_deliver_upload name
+        path_to_upload = File.expand_path("#{MountableFileServer::Testing.fixture_pathname}#{name}")
+
+        if File.file?(path_to_upload)
+          send_file path_to_upload
+        else
+          original_deliver_upload name
+        end
       end
     end
 

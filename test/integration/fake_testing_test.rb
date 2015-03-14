@@ -21,4 +21,12 @@ class TestFakeTesting < IntegrationTestCase
     assert Dir["#{MountableFileServer.configuration.stored_at}/public/*"].empty?
     assert Dir["#{MountableFileServer.configuration.stored_at}/tmp/*"].empty?
   end
+
+  def test_requesting_uploads_returns_fake_uploades
+    MountableFileServer::Testing.fake_upload = File.open(path('david.jpg'))
+
+    get '/non-existing.jpg'
+    assert_equal File.open(path('david.jpg')).size, last_response.body.size
+    assert_equal File.binread(path('david.jpg')), last_response.body
+  end
 end
