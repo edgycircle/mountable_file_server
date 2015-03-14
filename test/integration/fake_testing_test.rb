@@ -2,8 +2,6 @@ require 'integration_helper'
 require 'mountable_file_server/testing'
 
 class TestFakeTesting < IntegrationTestCase
-  include MountableFileServer::StorageHelper
-
   def setup
     super
     MountableFileServer::Testing.fake!
