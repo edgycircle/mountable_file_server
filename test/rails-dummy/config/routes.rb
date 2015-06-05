@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :users
 
-  mount MountableFileServer::Backend => '/uploads'
+  mount MountableFileServer::Backend.new, at: '/uploads'
 end

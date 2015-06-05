@@ -9,7 +9,7 @@ module MountableFileServer
       FileUtils.mkdir_p File.join(MountableFileServer.configuration.root, MountableFileServer.configuration.stored_at, 'tmp')
     end
 
-    post '/public-upload' do
+    post '/' do
       process_file_upload(params[:file])
     end
 
