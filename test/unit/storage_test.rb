@@ -41,20 +41,6 @@ class StorageTest < MiniTest::Test
     assert_equal 'public-b.jpg', identifier_two
   end
 
-  # def test_filename_is_random
-  #   upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-  #   storage = MountableFileServer::Storage.new configuration
-
-  #   identifier_one = storage.store_temporary upload: upload
-  #   identifier_two = storage.store_temporary upload: upload
-
-  #   refute_equal 'david.jpg', identifier_one
-  #   refute_equal 'david.jpg', identifier_two
-  #   refute_equal identifier_one, identifier_two
-  #   assert_match /\w+\.jpg/, identifier_one
-  #   assert_match /\w+\.jpg/, identifier_two
-  # end
-
 private
   def tmp_path
     File.expand_path('../../tmp/test-uploads/tmp', File.dirname(__FILE__))
