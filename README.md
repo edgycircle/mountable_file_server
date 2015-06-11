@@ -16,7 +16,7 @@ storage = MountableFileServer::Storage.new config
 upload = MountableFileServer::Upload.new file: file_parameters[:tempfile].read, type: 'public'
 
 identifier = storage.store_temporary upload: upload
-storage.move_to_storage identifier: identifier
+storage.move_to_permanent_storage identifier: identifier
 
 storage.file_for identifier: identifier
 storage.url_for identifier: identifier <- Maybe wo anders?

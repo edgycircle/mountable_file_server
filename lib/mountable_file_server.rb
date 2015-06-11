@@ -12,6 +12,11 @@ module MountableFileServer
     has :root, default: ''
   end
 
+  require "mountable_file_server/configuration"
+  require "mountable_file_server/upload"
+  require "mountable_file_server/storage"
+  require "mountable_file_server/endpoint"
+
   require "mountable_file_server/backend"
   require "mountable_file_server/engine"
   require "mountable_file_server/access_helper"
