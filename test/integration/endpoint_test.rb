@@ -4,6 +4,8 @@ class TestNormalTesting < IntegrationTestCase
   def setup
     FileUtils.mkdir_p configuration.stored_at
     FileUtils.mkdir_p File.join(configuration.stored_at, 'tmp')
+    FileUtils.mkdir_p File.join(configuration.stored_at, 'public')
+    FileUtils.mkdir_p File.join(configuration.stored_at, 'private')
   end
 
   def teardown
@@ -25,7 +27,31 @@ class TestNormalTesting < IntegrationTestCase
     assert File.file?(File.join(configuration.stored_at, 'tmp', last_response.body))
   end
 
+  def test_public_files_are_accessible
+    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'public'
+
+    identifier = last_response.body
+    storage.move_to_permanent_storage identifier: identifier
+
+    get "/#{identifier.gsub('public-', '')}"
+    assert_equal 200, last_response.status
+  end
+
+  def test_private_files_are_not_accessible
+    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'private'
+
+    identifier = last_response.body
+    storage.move_to_permanent_storage identifier: identifier
+
+    get "/#{identifier.gsub('private-', '')}"
+    assert_equal 500, last_response.status
+  end
+
 private
+  def storage
+    MountableFileServer::Storage.new configuration
+  end
+
   def configuration
     MountableFileServer::Configuration.new mounted_at: '', stored_at: File.expand_path('../../tmp/test-uploads/', File.dirname(__FILE__))
   end
