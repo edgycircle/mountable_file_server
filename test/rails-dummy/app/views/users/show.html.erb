@@ -7,7 +7,7 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= image_tag path_for_upload(@user.avatar_url) %>
+  <%= image_tag "/uploads/#{@user.avatar_url.gsub('public-', '')}" %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
