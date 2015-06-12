@@ -5,12 +5,10 @@ require 'minitest/hell'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path("../rails-dummy/config/environment.rb",  __FILE__)
-require 'mountable_file_server'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
 Capybara.current_driver = :poltergeist
-# ActionController::Base.allow_forgery_protection = true
 
 module PathHelper
   def path(filename)
@@ -23,8 +21,12 @@ class AcceptanceTestCase < MiniTest::Test
   include PathHelper
 
   def setup
-    MountableFileServer.configure do |config|
-      config.stored_at = File.expand_path('../rails-dummy/uploads/', __FILE__)
-    end
+    FileUtils.mkdir_p Rails.configuration.mountable_file_server.stored_at
+    FileUtils.mkdir_p File.join(Rails.configuration.mountable_file_server.stored_at, 'tmp')
+    FileUtils.mkdir_p File.join(Rails.configuration.mountable_file_server.stored_at, 'public')
+  end
+
+  def teardown
+    FileUtils.rm_rf Rails.configuration.mountable_file_server.stored_at
   end
 end
