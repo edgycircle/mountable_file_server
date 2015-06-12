@@ -24,5 +24,14 @@ module MountableFileServer
 
       identifier
     end
+
+    def move_to_permanent_storage(identifier:)
+      type = identifier.match(/(\w+)-\w+/)[1]
+      filename = identifier.gsub("#{type}-", '')
+      from = File.join(configuration.stored_at, 'tmp', identifier)
+      to = File.join(configuration.stored_at, type, filename)
+
+      FileUtils.move from, to
+    end
   end
 end
