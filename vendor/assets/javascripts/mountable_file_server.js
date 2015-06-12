@@ -24,6 +24,7 @@ function uploadFileFromInput($input) {
   var $csrfElement = queryClosest($input, 'input[name=authenticity_token]');
 
   formData.append('file', file);
+  formData.append('type', type);
 
   if ($csrfElement) {
     formData.append('_csrf_token', $csrfElement.value);
