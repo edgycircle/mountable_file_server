@@ -1,9 +1,9 @@
 require 'unit_helper'
 
-class UploadTest < MiniTest::Test
+class UploadTest < UnitTestCase
   def test_read_file
-    file = File.new(File.expand_path(File.join('../fixtures', 'david.jpg'), File.dirname(__FILE__)))
-    read_file = File.new(File.expand_path(File.join('../fixtures', 'david.jpg'), File.dirname(__FILE__))).read
+    file = File.new(fixture_path('david.jpg'))
+    read_file = File.new(fixture_path('david.jpg')).read
     upload = MountableFileServer::Upload.new file: { tempfile: file }, type: 'public'
 
     read_one = upload.read

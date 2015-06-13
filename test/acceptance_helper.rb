@@ -7,14 +7,9 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path("../rails-dummy/config/environment.rb",  __FILE__)
 require 'capybara/rails'
 require 'capybara/poltergeist'
+require 'support/path_helper'
 
 Capybara.current_driver = :poltergeist
-
-module PathHelper
-  def path(filename)
-    File.expand_path(File.join("fixtures", filename), File.dirname(__FILE__))
-  end
-end
 
 class AcceptanceTestCase < MiniTest::Test
   include Capybara::DSL

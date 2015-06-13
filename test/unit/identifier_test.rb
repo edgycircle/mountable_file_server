@@ -1,6 +1,6 @@
 require 'unit_helper'
 
-class IdentifierTest < MiniTest::Test
+class IdentifierTest < UnitTestCase
   def test_generate_random_identifier_with_file_extension
     identifier_png = MountableFileServer::Identifier.generate_for filename: 'test.png', type: 'public'
     identifier_pdf = MountableFileServer::Identifier.generate_for filename: 'test.pdf', type: 'public'

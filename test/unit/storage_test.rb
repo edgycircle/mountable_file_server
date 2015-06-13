@@ -1,6 +1,6 @@
 require 'unit_helper'
 
-class StorageTest < MiniTest::Test
+class StorageTest < UnitTestCase
   def setup
     FileUtils.mkdir_p tmp_path
     FileUtils.mkdir_p public_path
@@ -92,7 +92,7 @@ private
   def fake_upload_parameters
     {
       filename: 'david.jpg',
-      tempfile: File.new(File.expand_path(File.join('../fixtures', 'david.jpg'), File.dirname(__FILE__)))
+      tempfile: File.new(fixture_path('david.jpg'))
     }
   end
 

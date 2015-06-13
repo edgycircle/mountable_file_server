@@ -13,22 +13,22 @@ class TestNormalTesting < IntegrationTestCase
   end
 
   def test_upload_of_public_file_returns_identifier
-    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'public'
+    post '/', file: Rack::Test::UploadedFile.new(fixture_path('david.jpg'), 'image/jpeg'), type: 'public'
     assert_match /public-.*.jpg/, last_response.body
   end
 
   def test_upload_of_private_file_returns_identifier
-    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'private'
+    post '/', file: Rack::Test::UploadedFile.new(fixture_path('david.jpg'), 'image/jpeg'), type: 'private'
     assert_match /private-.*.jpg/, last_response.body
   end
 
   def test_upload_of_public_file_stores_it_temporarly
-    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'public'
+    post '/', file: Rack::Test::UploadedFile.new(fixture_path('david.jpg'), 'image/jpeg'), type: 'public'
     assert File.file?(File.join(configuration.stored_at, 'tmp', last_response.body))
   end
 
   def test_public_files_are_accessible
-    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'public'
+    post '/', file: Rack::Test::UploadedFile.new(fixture_path('david.jpg'), 'image/jpeg'), type: 'public'
 
     identifier = last_response.body
     storage.move_to_permanent_storage identifier: identifier
@@ -38,7 +38,7 @@ class TestNormalTesting < IntegrationTestCase
   end
 
   def test_private_files_are_not_accessible
-    post '/', file: Rack::Test::UploadedFile.new(path('david.jpg'), 'image/jpeg'), type: 'private'
+    post '/', file: Rack::Test::UploadedFile.new(fixture_path('david.jpg'), 'image/jpeg'), type: 'private'
 
     identifier = last_response.body
     storage.move_to_permanent_storage identifier: identifier

@@ -1,6 +1,6 @@
 require 'unit_helper'
 
-class ConfigurationTest < MiniTest::Test
+class ConfigurationTest < UnitTestCase
   def test_options_can_be_read
     configuration = MountableFileServer::Configuration.new mounted_at: '/uploads', stored_at: './uploads'
 

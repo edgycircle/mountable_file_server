@@ -3,7 +3,7 @@ require 'acceptance_helper'
 class TestFormInteractions < AcceptanceTestCase
   def test_upload_client_side_interaction
     visit "/users/new"
-    attach_file("Avatar url", path('david.jpg'))
+    attach_file("Avatar url", fixture_path('david.jpg'))
 
     sleep 0.1
 
@@ -15,7 +15,7 @@ class TestFormInteractions < AcceptanceTestCase
   def test_upload
     visit "/users/new"
     fill_in "Name", with: "David"
-    attach_file "Avatar url", path('david.jpg')
+    attach_file "Avatar url", fixture_path('david.jpg')
 
     sleep 0.1
 
