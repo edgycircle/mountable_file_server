@@ -7,8 +7,8 @@ module MountableFileServer
       @type = type
     end
 
-    def file_extension
-      File.extname file[:filename]
+    def filename
+      file[:filename]
     end
 
     def read

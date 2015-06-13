@@ -21,14 +21,6 @@ class StorageTest < MiniTest::Test
     assert File.exists? File.join(tmp_path, identifier)
   end
 
-  def test_identifier_is_prefixed_with_type
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-
-    identifier = storage.store_temporary upload: upload
-
-    assert_match /public-\w+\.jpg/, identifier
-  end
-
   def test_identifier_is_unique_within_temporary_directory
     random_tokens = ['a', 'a', 'b']
     stub(SecureRandom).hex { random_tokens.shift }
@@ -58,14 +50,10 @@ class StorageTest < MiniTest::Test
     refute File.exists? File.join(private_path, private_identifier)
     refute File.exists? File.join(public_path, public_identifier)
     refute File.exists? File.join(public_path, private_identifier)
-
-    public_filename = public_identifier.gsub('public-', '')
-    private_filename = private_identifier.gsub('private-', '')
-
-    refute File.exists? File.join(private_path, public_filename)
-    assert File.exists? File.join(private_path, private_filename)
-    assert File.exists? File.join(public_path, public_filename)
-    refute File.exists? File.join(public_path, private_filename)
+    refute File.exists? File.join(private_path, public_identifier.filename)
+    assert File.exists? File.join(private_path, private_identifier.filename)
+    assert File.exists? File.join(public_path, public_identifier.filename)
+    refute File.exists? File.join(public_path, private_identifier.filename)
   end
 
   def test_returns_url_for_public_identifiers

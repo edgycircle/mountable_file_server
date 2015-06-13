@@ -7,18 +7,11 @@ module MountableFileServer
     end
 
     def store_temporary(upload:)
-      file_extension = upload.file_extension
-      file_path = nil
-      identifier = nil
+      filename = upload.filename
+      type = upload.type
+      identifier, path = random_identifier filename: filename, type: type
 
-      loop do
-        identifier = "#{upload.type}-#{SecureRandom.hex}#{file_extension}"
-        file_path = File.join(configuration.stored_at, 'tmp', identifier)
-
-        break unless File.exists?(file_path)
-      end
-
-      File.open(file_path, 'wb') do |file|
+      File.open(path, 'wb') do |file|
         file.write upload.read
       end
 
@@ -26,29 +19,39 @@ module MountableFileServer
     end
 
     def move_to_permanent_storage(identifier:)
-      type = identifier.match(/(\w+)-\w+/)[1]
-      filename = identifier.gsub("#{type}-", '')
+      identifier = Identifier.new identifier
       from = File.join(configuration.stored_at, 'tmp', identifier)
-      to = File.join(configuration.stored_at, type, filename)
+      to = File.join(configuration.stored_at, identifier.type, identifier.filename)
 
       FileUtils.move from, to
     end
 
     def url_for(identifier:)
-      type = identifier.match(/(\w+)-\w+/)[1]
+      identifier = Identifier.new identifier
 
-      raise ArgumentError.new('Private identifiers are not accessible via HTTP and therefore do not have an associated URL.') if type == 'private'
+      raise ArgumentError.new('Private identifiers are not accessible via HTTP and therefore do not have an associated URL.') if identifier.type == 'private'
 
-      filename = identifier.gsub("#{type}-", '')
-
-      File.join configuration.mounted_at, filename
+      File.join configuration.mounted_at, identifier.filename
     end
 
     def path_for(identifier:)
-      type = identifier.match(/(\w+)-\w+/)[1]
-      filename = identifier.gsub("#{type}-", '')
+      identifier = Identifier.new identifier
+      File.join configuration.stored_at, identifier.type, identifier.filename
+    end
 
-      File.join configuration.stored_at, type, filename
+  private
+    def random_identifier(filename:, type:)
+      identifier = nil
+      path = nil
+
+      loop do
+        identifier = Identifier.generate_for filename: filename, type: type
+        path = File.join(configuration.stored_at, 'tmp', identifier)
+
+        break unless File.exists?(path)
+      end
+
+      return identifier, path
     end
   end
 end
