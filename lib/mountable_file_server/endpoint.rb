@@ -25,7 +25,7 @@ module MountableFileServer
       if File.file?(path_to_file)
         send_file path_to_file
       else
-        pass
+        not_found
       end
     end
   end

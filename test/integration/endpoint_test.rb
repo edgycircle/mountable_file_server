@@ -44,7 +44,7 @@ class TestNormalTesting < IntegrationTestCase
     storage.move_to_permanent_storage identifier: identifier
 
     get "/#{identifier.gsub('private-', '')}"
-    assert_equal 500, last_response.status
+    assert_equal 404, last_response.status
   end
 
 private
