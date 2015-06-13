@@ -15,10 +15,15 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :avatar_url %><br>
-    <%= f.ajax_upload_field :avatar_url %>
+    <div class="js-mountable-file-server-input">
+      <%= f.text_field :avatar_url, type: :file, data: { endpoint: '/uploads', type: 'public' } %>
+      <%= f.hidden_field :avatar_url, type: :hidden %>
+    </div>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

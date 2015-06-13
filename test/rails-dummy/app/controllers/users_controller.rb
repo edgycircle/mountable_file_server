@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @storage = MountableFileServer::Storage.new Rails.configuration.mountable_file_server
   end
 
   # GET /users/new
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      move_upload_to_storage @user.avatar_url
+      storage = MountableFileServer::Storage.new Rails.configuration.mountable_file_server
+      storage.move_to_permanent_storage identifier: @user.avatar_url
       redirect_to @user, notice: 'User was successfully created.'
     else
       render :new

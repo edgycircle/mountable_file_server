@@ -1,29 +1,13 @@
 require 'acceptance_helper'
 
 class TestFormInteractions < AcceptanceTestCase
-  def test_form_helper_adds_markup
-    visit "/users/new"
-
-    assert find('.mountable-file-server-input')
-  end
-
-  def test_form_helper_adds_hidden_field_after_file_input
-    visit "/users/new"
-
-    inputs = all('input[name="user[avatar_url]"]', visible: false)
-
-    assert_equal 2, inputs.size
-    assert_equal 'file', inputs[0][:type]
-    assert_equal 'hidden', inputs[1][:type]
-  end
-
   def test_upload_client_side_interaction
     visit "/users/new"
-    attach_file("Avatar url", path('david.jpg'))
+    attach_file("Avatar url", fixture_path('david.jpg'))
 
     sleep 0.1
 
-    assert_match /public-.*.jpg/, find('.mountable-file-server-input input[type=hidden]', visible: false).value
+    assert_match /public-.*.jpg/, find('.js-mountable-file-server-input input[type=hidden]', visible: false).value
     assert has_content?("Upload started.")
     assert has_content?("Upload succeeded.")
   end
@@ -31,7 +15,7 @@ class TestFormInteractions < AcceptanceTestCase
   def test_upload
     visit "/users/new"
     fill_in "Name", with: "David"
-    attach_file "Avatar url", path('david.jpg')
+    attach_file "Avatar url", fixture_path('david.jpg')
 
     sleep 0.1
 
