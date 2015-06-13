@@ -33,5 +33,22 @@ module MountableFileServer
 
       FileUtils.move from, to
     end
+
+    def url_for(identifier:)
+      type = identifier.match(/(\w+)-\w+/)[1]
+
+      raise ArgumentError.new('Private identifiers are not accessible via HTTP and therefore do not have an associated URL.') if type == 'private'
+
+      filename = identifier.gsub("#{type}-", '')
+
+      File.join configuration.mounted_at, filename
+    end
+
+    def path_for(identifier:)
+      type = identifier.match(/(\w+)-\w+/)[1]
+      filename = identifier.gsub("#{type}-", '')
+
+      File.join configuration.stored_at, type, filename
+    end
   end
 end

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @storage = MountableFileServer::Storage.new Rails.configuration.mountable_file_server
   end
 
   # GET /users/new

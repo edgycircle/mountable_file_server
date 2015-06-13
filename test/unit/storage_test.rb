@@ -15,7 +15,6 @@ class StorageTest < MiniTest::Test
 
   def test_temporary_storage
     upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    storage = MountableFileServer::Storage.new configuration
 
     identifier = storage.store_temporary upload: upload
 
@@ -24,7 +23,6 @@ class StorageTest < MiniTest::Test
 
   def test_identifier_is_prefixed_with_type
     upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    storage = MountableFileServer::Storage.new configuration
 
     identifier = storage.store_temporary upload: upload
 
@@ -36,7 +34,6 @@ class StorageTest < MiniTest::Test
     stub(SecureRandom).hex { random_tokens.shift }
 
     upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    storage = MountableFileServer::Storage.new configuration
 
     identifier_one = storage.store_temporary upload: upload
     identifier_two = storage.store_temporary upload: upload
@@ -46,7 +43,6 @@ class StorageTest < MiniTest::Test
   end
 
   def test_permanent_storage
-    storage = MountableFileServer::Storage.new configuration
     public_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
     private_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
 
@@ -72,6 +68,26 @@ class StorageTest < MiniTest::Test
     refute File.exists? File.join(public_path, private_filename)
   end
 
+  def test_returns_url_for_public_identifiers
+    identifier = 'public-test.png'
+    assert_equal File.join(configuration.mounted_at, 'test.png'), storage.url_for(identifier: identifier)
+  end
+
+  def test_private_identifiers_do_not_have_an_url
+    identifier = 'private-test.png'
+    assert_raises(ArgumentError) { storage.url_for(identifier: identifier) }
+  end
+
+  def test_returns_path_for_public_identifiers
+    identifier = 'public-test.png'
+    assert_equal File.join(configuration.stored_at, 'public', 'test.png'), storage.path_for(identifier: identifier)
+  end
+
+  def test_returns_path_for_private_identifiers
+    identifier = 'private-test.png'
+    assert_equal File.join(configuration.stored_at, 'private', 'test.png'), storage.path_for(identifier: identifier)
+  end
+
 private
   def tmp_path
     File.expand_path('../../tmp/test-uploads/tmp', File.dirname(__FILE__))
@@ -93,6 +109,10 @@ private
   end
 
   def configuration
-    MountableFileServer::Configuration.new mounted_at: '', stored_at: File.join(tmp_path, '../')
+    MountableFileServer::Configuration.new mounted_at: '/uploads', stored_at: File.join(tmp_path, '../')
+  end
+
+  def storage
+    MountableFileServer::Storage.new configuration
   end
 end
