@@ -13,28 +13,45 @@
 //= require mountable_file_server
 //= require_tree .
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
   var form = document.querySelector("form");
 
   if (!form) { return; }
 
   var input = document.querySelector("input[type=file]");
 
-  input.addEventListener("upload:start", function() {
+  input.addEventListener('change', function(event) {
+    uploadFiles(this, this.files);
+  });
+
+  input.addEventListener('upload:start', function(event) {
+    console.log('start', event.detail);
+
     var p = document.createElement("p");
     p.textContent = "Upload started.";
     form.appendChild(p);
   });
 
-  input.addEventListener("upload:success", function() {
+  input.addEventListener('upload:progress', function(event) {
+    console.log('progress', event.detail);
+
     var p = document.createElement("p");
-    p.textContent = "Upload succeeded.";
+    p.textContent = "Upload progess " + event.detail.progress.loaded + " of " + event.detail.progress.total + ".";
     form.appendChild(p);
   });
 
-  input.addEventListener("upload:progress", function(event) {
+  input.addEventListener('upload:success', function(event) {
+    console.log('success', event.detail);
+
+    var $hiddenInput = document.createElement('input');
+
+    $hiddenInput.value = event.detail.identifier;
+    $hiddenInput.name = this.name;
+    $hiddenInput.type = 'hidden';
+    this.parentNode.insertBefore($hiddenInput, this.nextSibling);
+
     var p = document.createElement("p");
-    p.textContent = "Upload progess " + event.detail.progress.loaded + " of " + event.detail.progress.total + ".";
+    p.textContent = "Upload succeeded.";
     form.appendChild(p);
   });
 });

@@ -20,7 +20,6 @@
     <%= f.label :avatar_url %><br>
     <div class="js-mountable-file-server-input">
       <%= f.text_field :avatar_url, type: :file, data: { endpoint: '/uploads', type: 'public' } %>
-      <%= f.hidden_field :avatar_url, type: :hidden %>
     </div>
   </div>
 

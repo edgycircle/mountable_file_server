@@ -1,71 +1,59 @@
-document.addEventListener('change', onChange);
+(function() {
+  var lastUploadId = 0;
+  var finishedUploads = [];
 
-function onChange(event) {
-  var $input = event.target;
+  var dispatchEvent = function($element, name, payload) {
+    var event = document.createEvent('CustomEvent');
 
-  if (isFileUploadInput($input)) {
-    uploadFileFromInput($input);
-  }
-}
+    event.initCustomEvent(name, true, false, payload);
+    $element.dispatchEvent(event);
+  };
 
-function isFileUploadInput($element) {
-  return $element.tagName === 'INPUT' &&
-          $element.type === 'file' &&
-          $element.getAttribute('data-endpoint') &&
-          $element.getAttribute('data-type');
-}
+  var uploadFile = function($element, file, uploadId) {
+    var url = $element.getAttribute('data-endpoint');
+    var type = $element.getAttribute('data-type');
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData();
 
-function uploadFileFromInput($input) {
-  var url = $input.getAttribute('data-endpoint');
-  var type = $input.getAttribute('data-type');
-  var file = $input.files[0];
-  var xhr = new XMLHttpRequest();
-  var formData = new FormData();
-  var $csrfElement = queryClosest($input, 'input[name=authenticity_token]');
+    formData.append('file', file);
+    formData.append('type', type);
 
-  formData.append('file', file);
-  formData.append('type', type);
+    xhr.open('POST', url, true);
 
-  if ($csrfElement) {
-    formData.append('_csrf_token', $csrfElement.value);
-  }
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        finishedUploads.push(uploadId);
 
-  xhr.open('POST', url, true);
-
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      setInputValues(xhr.responseText, $input);
-      dispatchEvent($input, 'upload:success', { url: xhr.responseText });
+        dispatchEvent($element, 'upload:success', {
+          uploadId: uploadId,
+          identifier: xhr.responseText,
+          wasLastUpload: lastUploadId == finishedUploads.length
+        });
+      }
     }
-  }
 
-  xhr.upload.addEventListener('progress', function(progressEvent) {
-    if (progressEvent.lengthComputable) {
-      dispatchEvent($input, 'upload:progress', { progress: progressEvent });
+    xhr.upload.addEventListener('progress', function(progressEvent) {
+      if (progressEvent.lengthComputable) {
+        dispatchEvent($element, 'upload:progress', {
+          uploadId: uploadId,
+          progress: progressEvent
+        });
+      }
+    });
+
+    xhr.send(formData);
+
+    dispatchEvent($element, 'upload:start', {
+      uploadId: uploadId,
+      file: file
+    });
+  };
+
+  var internalUploadFiles = function($element, files) {
+    for (var i = 0; i < files.length; i++) {
+      uploadFile($element, files[i], ++lastUploadId);
     }
-  });
+  };
 
-  xhr.send(formData);
-  dispatchEvent($input, 'upload:start', { file: file });
-}
-
-function setInputValues(response, $fileInput) {
-  var $parent = queryClosest($fileInput, '.js-mountable-file-server-input');
-  var $hiddenInput = $parent.querySelector('input[type=hidden]');
-
-  $hiddenInput.value = response;
-}
-
-function queryClosest($element, selector) {
-  if ($element !== null) {
-    return $element.querySelector(selector) ||
-            queryClosest($element.parentNode, selector);
-  }
-}
-
-function dispatchEvent($element, name, payload) {
-  var event = document.createEvent('CustomEvent');
-
-  event.initCustomEvent(name, true, false, payload);
-  $element.dispatchEvent(event);
-};
+  window.uploadFiles = internalUploadFiles;
+})();

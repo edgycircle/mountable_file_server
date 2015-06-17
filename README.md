@@ -29,8 +29,5 @@ storage.url_for identifier: identifier
 ~~~
 
 ~~~html
-<div class="js-mountable-file-server-input">
-  <input type="file" name="avatar" data-endpoint="/uploads" data-type="public">
-  <input type="hidden" name="avatar">
-</div>
+<input type="file" name="avatar" data-endpoint="/uploads" data-type="public">
 ~~~
