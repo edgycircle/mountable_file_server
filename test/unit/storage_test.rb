@@ -101,6 +101,22 @@ class StorageTest < UnitTestCase
     storage.move_to_permanent_storage identifier: identifier
     refute storage.publicly_accessible?(identifier: identifier)
   end
+
+  def test_file_for_temporarly_stored_upload
+    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
+    identifier = storage.store_temporary upload: upload
+    file = storage.file_for identifier: identifier
+    assert_equal File.new(fixture_path('david.jpg')).read, file.read
+  end
+
+  def test_file_for_permanently_stored_upload
+    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
+    identifier = storage.store_temporary upload: upload
+    file = storage.file_for identifier: identifier
+    storage.move_to_permanent_storage identifier: identifier
+    assert_equal File.new(fixture_path('david.jpg')).read, file.read
+  end
+
 private
   def tmp_path
     File.expand_path('../../tmp/test-uploads/tmp', File.dirname(__FILE__))

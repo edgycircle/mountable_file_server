@@ -39,6 +39,17 @@ module MountableFileServer
       File.join configuration.stored_at, identifier.type, identifier.filename
     end
 
+    def file_for(identifier:)
+      identifier = Identifier.new identifier
+      path = path_for identifier: identifier
+
+      if File.file? path
+        File.new path
+      else
+        File.new(File.join(configuration.stored_at, 'tmp', identifier))
+      end
+    end
+
     def publicly_accessible?(identifier:)
       identifier = Identifier.new identifier
 
