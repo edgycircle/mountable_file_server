@@ -39,6 +39,12 @@ module MountableFileServer
       File.join configuration.stored_at, identifier.type, identifier.filename
     end
 
+    def publicly_accessible?(identifier:)
+      identifier = Identifier.new identifier
+
+      identifier.public? && File.file?(path_for(identifier: identifier))
+    end
+
   private
     def random_identifier(filename:, type:)
       identifier = nil

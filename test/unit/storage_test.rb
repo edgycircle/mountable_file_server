@@ -76,6 +76,31 @@ class StorageTest < UnitTestCase
     assert_equal File.join(configuration.stored_at, 'private', 'test.png'), storage.path_for(identifier: identifier)
   end
 
+  def test_temporary_stored_public_uploads_are_not_publicly_accessible
+    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
+    identifier = storage.store_temporary upload: upload
+    refute storage.publicly_accessible?(identifier: identifier)
+  end
+
+  def test_temporary_stored_private_uploads_are_not_publicly_accessible
+    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
+    identifier = storage.store_temporary upload: upload
+    refute storage.publicly_accessible?(identifier: identifier)
+  end
+
+  def test_permanently_stored_public_uploads_are_publicly_accessible
+    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
+    identifier = storage.store_temporary upload: upload
+    storage.move_to_permanent_storage identifier: identifier
+    assert storage.publicly_accessible?(identifier: identifier)
+  end
+
+  def test_permanently_stored_private_uploads_are_not_publicly_accessible
+    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
+    identifier = storage.store_temporary upload: upload
+    storage.move_to_permanent_storage identifier: identifier
+    refute storage.publicly_accessible?(identifier: identifier)
+  end
 private
   def tmp_path
     File.expand_path('../../tmp/test-uploads/tmp', File.dirname(__FILE__))
