@@ -25,6 +25,10 @@ module MountableFileServer
       to_str == other.to_str
     end
 
+    def public?
+      type == 'public'
+    end
+
   private
     def valid_type?
       ['public', 'private'].include?(type)

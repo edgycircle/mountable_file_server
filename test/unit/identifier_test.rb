@@ -40,4 +40,9 @@ class IdentifierTest < UnitTestCase
     assert_equal a, d
     refute_equal a, c
   end
+
+  def test_public?
+    assert MountableFileServer::Identifier.new('public-test.png').public?
+    refute MountableFileServer::Identifier.new('private-test.png').public?
+  end
 end
