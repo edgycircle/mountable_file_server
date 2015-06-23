@@ -69,54 +69,6 @@ class AccessFilesystemTest < UnitTestCase
     assert_equal File.new(fixture_path('david.jpg')).read, file.read
   end
 
-  def test_publicly_accessible_with_public_identifer_string_in_temporary_storage
-    identifier = 'public-david.jpg'
-    FileUtils.cp original, File.join(temporary_path, identifier)
-    refute access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_public_identifer_object_in_temporary_storage
-    identifier = MountableFileServer::Identifier.new 'public-david.jpg'
-    FileUtils.cp original, File.join(temporary_path, identifier)
-    refute access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_public_identifer_string_in_permanent_storage
-    identifier = 'public-david.jpg'
-    FileUtils.cp original, File.join(public_path, 'david.jpg')
-    assert access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_public_identifer_object_in_permanent_storage
-    identifier = MountableFileServer::Identifier.new 'public-david.jpg'
-    FileUtils.cp original, File.join(public_path, 'david.jpg')
-    assert access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_private_identifer_string_in_temporary_storage
-    identifier = 'private-david.jpg'
-    FileUtils.cp original, File.join(temporary_path, identifier)
-    refute access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_private_identifer_object_in_temporary_storage
-    identifier = MountableFileServer::Identifier.new 'private-david.jpg'
-    FileUtils.cp original, File.join(temporary_path, identifier)
-    refute access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_private_identifer_string_in_permanent_storage
-    identifier = 'private-david.jpg'
-    FileUtils.cp original, File.join(private_path, 'david.jpg')
-    refute access.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_publicly_accessible_with_private_identifer_object_in_permanent_storage
-    identifier = MountableFileServer::Identifier.new 'private-david.jpg'
-    FileUtils.cp original, File.join(private_path, 'david.jpg')
-    refute access.publicly_accessible?(identifier: identifier)
-  end
-
   private
   def configuration
     MountableFileServer::Configuration.new mounted_at: '/uploads', stored_at: File.join(temporary_path, '../')

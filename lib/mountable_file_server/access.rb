@@ -33,20 +33,12 @@ module MountableFileServer
     end
 
     def file_for(identifier:)
-      identifier = Identifier.new identifier
-      path = path_for identifier: identifier
+      paths = [
+                path_for(identifier: identifier),
+                temporary_path_for(identifier: identifier)
+              ]
 
-      if File.file? path
-        File.new path
-      else
-        File.new(temporary_path_for(identifier: identifier))
-      end
-    end
-
-    def publicly_accessible?(identifier:)
-      identifier = Identifier.new identifier
-
-      identifier.public? && File.file?(path_for(identifier: identifier))
+      File.new paths.find { |path| File.file? path }
     end
   end
 end
