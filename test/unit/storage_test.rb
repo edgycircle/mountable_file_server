@@ -56,67 +56,6 @@ class StorageTest < UnitTestCase
     refute File.exists? File.join(public_path, private_identifier.filename)
   end
 
-  def test_returns_url_for_public_identifiers
-    identifier = 'public-test.png'
-    assert_equal File.join(configuration.mounted_at, 'test.png'), storage.url_for(identifier: identifier)
-  end
-
-  def test_private_identifiers_do_not_have_an_url
-    identifier = 'private-test.png'
-    assert_raises(ArgumentError) { storage.url_for(identifier: identifier) }
-  end
-
-  def test_returns_path_for_public_identifiers
-    identifier = 'public-test.png'
-    assert_equal File.join(configuration.stored_at, 'public', 'test.png'), storage.path_for(identifier: identifier)
-  end
-
-  def test_returns_path_for_private_identifiers
-    identifier = 'private-test.png'
-    assert_equal File.join(configuration.stored_at, 'private', 'test.png'), storage.path_for(identifier: identifier)
-  end
-
-  def test_temporary_stored_public_uploads_are_not_publicly_accessible
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    identifier = storage.store_temporary upload: upload
-    refute storage.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_temporary_stored_private_uploads_are_not_publicly_accessible
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
-    identifier = storage.store_temporary upload: upload
-    refute storage.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_permanently_stored_public_uploads_are_publicly_accessible
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    identifier = storage.store_temporary upload: upload
-    storage.move_to_permanent_storage identifier: identifier
-    assert storage.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_permanently_stored_private_uploads_are_not_publicly_accessible
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
-    identifier = storage.store_temporary upload: upload
-    storage.move_to_permanent_storage identifier: identifier
-    refute storage.publicly_accessible?(identifier: identifier)
-  end
-
-  def test_file_for_temporarly_stored_upload
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    identifier = storage.store_temporary upload: upload
-    file = storage.file_for identifier: identifier
-    assert_equal File.new(fixture_path('david.jpg')).read, file.read
-  end
-
-  def test_file_for_permanently_stored_upload
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
-    identifier = storage.store_temporary upload: upload
-    file = storage.file_for identifier: identifier
-    storage.move_to_permanent_storage identifier: identifier
-    assert_equal File.new(fixture_path('david.jpg')).read, file.read
-  end
-
 private
   def tmp_path
     File.expand_path('../../tmp/test-uploads/tmp', File.dirname(__FILE__))
