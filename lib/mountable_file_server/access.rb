@@ -1,3 +1,5 @@
+require 'url_safe_base64'
+
 module MountableFileServer
   class Access
     NotAccessibleViaURL = Class.new(ArgumentError)
@@ -17,12 +19,17 @@ module MountableFileServer
       File.join configuration.stored_at, identifier.type, identifier.filename
     end
 
-    def url_for(identifier:)
+    def url_for(identifier:, resize: nil)
       identifier = Identifier.new identifier
 
       raise NotAccessibleViaURL unless identifier.public?
 
-      File.join configuration.mounted_at, identifier.filename
+      if resize
+        resize_part = UrlSafeBase64.encode64 resize
+        File.join configuration.mounted_at, identifier.filename.gsub('.', ".#{resize_part}.")
+      else
+        File.join configuration.mounted_at, identifier.filename
+      end
     end
 
     def file_for(identifier:)
