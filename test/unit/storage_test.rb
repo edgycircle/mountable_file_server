@@ -56,6 +56,23 @@ class StorageTest < UnitTestCase
     refute File.exists? File.join(public_path, private_identifier.filename)
   end
 
+  def test_removing_identifiers
+    public_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
+    private_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
+
+    public_identifier = storage.store_temporary upload: public_upload
+    private_identifier = storage.store_temporary upload: private_upload
+
+    storage.move_to_permanent_storage identifier: public_identifier
+    storage.move_to_permanent_storage identifier: private_identifier
+
+    storage.remove_from_permanent_storage identifier: public_identifier
+    storage.remove_from_permanent_storage identifier: private_identifier
+
+    refute File.exists? File.join(private_path, private_identifier.filename)
+    refute File.exists? File.join(public_path, public_identifier.filename)
+  end
+
 private
   def tmp_path
     File.expand_path('../../tmp/test-uploads/tmp', File.dirname(__FILE__))

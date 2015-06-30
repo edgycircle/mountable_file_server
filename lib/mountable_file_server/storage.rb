@@ -27,6 +27,13 @@ module MountableFileServer
       FileUtils.move from, to
     end
 
+    def remove_from_permanent_storage(identifier:)
+      identifier = Identifier.new identifier
+      path = access.path_for identifier: identifier
+
+      FileUtils.rm path
+    end
+
   private
     def random_identifier(filename:, type:)
       loop do
