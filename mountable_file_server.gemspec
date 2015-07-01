@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = MountableFileServer::VERSION
   spec.authors       = ["David Strauß"]
   spec.email         = ["david@strauss.io"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Simple mountable server that handles file uploads}
+  spec.description   = %q{}
   spec.homepage      = ""
   spec.license       = "MIT"
 
