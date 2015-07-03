@@ -12,9 +12,12 @@ module MountableFileServer
     end
 
     post '/' do
-      upload = Upload.new file: params[:file], type: params[:type]
+      path = params[:file][:tempfile].path
+      filename = params[:file][:filename]
+      type = params[:type]
       storage = Storage.new configuration
-      storage.store_temporary(upload: upload).to_str
+
+      storage.store_temporary(path: path, type: type, filename: filename).to_str
     end
 
     get '/*' do

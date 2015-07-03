@@ -6,16 +6,21 @@ module MountableFileServer
       @access = Access.new configuration
     end
 
-    def store_temporary(upload:)
-      filename = upload.filename
-      type = upload.type
+    def store_temporary(path:, type:, filename:)
+      file_to_be_stored = File.new path
       identifier = random_identifier filename: filename, type: type
       path = access.temporary_path_for identifier: identifier
 
       File.open(path, 'wb') do |file|
-        file.write upload.read
+        file.write file_to_be_stored.read
       end
 
+      identifier
+    end
+
+    def store_permanently(path:, type:, filename:)
+      identifier = store_temporary path: path, type: type, filename: filename
+      move_to_permanent_storage identifier: identifier
       identifier
     end
 

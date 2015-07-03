@@ -13,33 +13,40 @@ class StorageTest < UnitTestCase
     FileUtils.rm_rf private_path
   end
 
-  def test_temporary_storage
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
+  def test_store_temporary
+    type = 'public'
+    path = fixture_path('david.jpg')
+    identifier = storage.store_temporary path: path, type: 'public', filename: 'david.jpg'
 
-    identifier = storage.store_temporary upload: upload
+    assert File.exist?(File.join(tmp_path, identifier))
+  end
 
-    assert File.exists? File.join(tmp_path, identifier)
+  def test_store_permanently
+    type = 'public'
+    path = fixture_path('david.jpg')
+    identifier = storage.store_permanently path: path, type: 'public', filename: 'david.jpg'
+
+    assert File.exist?(File.join(public_path, identifier.filename))
   end
 
   def test_identifier_is_unique_within_temporary_directory
+    type = 'public'
+    path = fixture_path('david.jpg')
     random_tokens = ['a', 'a', 'b']
     stub(SecureRandom).hex { random_tokens.shift }
 
-    upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-
-    identifier_one = storage.store_temporary upload: upload
-    identifier_two = storage.store_temporary upload: upload
+    identifier_one = storage.store_temporary path: path, type: 'public', filename: 'david.jpg'
+    identifier_two = storage.store_temporary path: path, type: 'public', filename: 'david.jpg'
 
     assert_equal 'public-a.jpg', identifier_one
     assert_equal 'public-b.jpg', identifier_two
   end
 
   def test_permanent_storage
-    public_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    private_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
+    path = fixture_path('david.jpg')
 
-    public_identifier = storage.store_temporary upload: public_upload
-    private_identifier = storage.store_temporary upload: private_upload
+    public_identifier = storage.store_temporary path: path, type: 'public', filename: 'david.jpg'
+    private_identifier = storage.store_temporary path: path, type: 'private', filename: 'david.jpg'
 
     storage.move_to_permanent_storage identifier: public_identifier
     storage.move_to_permanent_storage identifier: private_identifier
@@ -57,11 +64,10 @@ class StorageTest < UnitTestCase
   end
 
   def test_removing_identifiers
-    public_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'public'
-    private_upload = MountableFileServer::Upload.new file: fake_upload_parameters, type: 'private'
+    path = fixture_path('david.jpg')
 
-    public_identifier = storage.store_temporary upload: public_upload
-    private_identifier = storage.store_temporary upload: private_upload
+    public_identifier = storage.store_temporary path: path, type: 'public', filename: 'david.jpg'
+    private_identifier = storage.store_temporary path: path, type: 'private', filename: 'david.jpg'
 
     storage.move_to_permanent_storage identifier: public_identifier
     storage.move_to_permanent_storage identifier: private_identifier
