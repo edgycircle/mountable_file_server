@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["david@strauss.io"]
   spec.summary       = %q{Simple mountable server that handles file uploads}
   spec.description   = %q{}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/stravid/mountable_file_server"
   spec.license       = "MIT"
 
   spec.files         = Dir["**/*"]
