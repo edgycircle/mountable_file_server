@@ -31,3 +31,34 @@ storage.url_for identifier: identifier
 ~~~html
 <input type="file" name="avatar" data-endpoint="/uploads" data-type="public">
 ~~~
+
+
+
+Wieso ist MFS besser?
+
+Losgekoppelt von der Anwendung / Active Record
+Beispiel Schaltwerk beim Fahrrad im Bezug auf Versionen
+Komplexe Lösungen mit hunderten Issues wo probleme erwähnt werden
+Erlaubt es einfach gute UI zu machen
+Upload passiert nicht im Request zum Controller
+Private Uploads
+
+Funktioniert nur wenn du Dateien auf deinem Server hast.
+Nichts für Gem Installier Programmierer die erwarten das ein Gem ihren UseCase ohne zusätzlichen Aufwand löst.
+
+
+Open Fragen:
+Upload nur auf Gruppe X einschränken
+
+
+Example1:Topic: Realestatephotography
+Subtopic: Housesforsale
+Angle: Picturesthatinspirebuyers Oneword: Preparation
+What: Is wrong with most advertising photos? Why: Are they wrong?
+How: Can they be improved?
+Who: Is best to take the photos?
+Objections:
+Lack of time
+Houses still sell Cost Deception
+Example: Changingagents/changingpictures/ sale
+Summary: Advantages
