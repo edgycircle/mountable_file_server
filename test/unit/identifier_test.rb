@@ -30,17 +30,6 @@ class IdentifierTest < UnitTestCase
     MountableFileServer::Identifier.new MountableFileServer::Identifier.new('public-test.png')
   end
 
-  def test_equality
-    a = MountableFileServer::Identifier.new 'public-test.png'
-    b = MountableFileServer::Identifier.new 'public-test.png'
-    c = MountableFileServer::Identifier.new 'public-random.png'
-    d = 'public-test.png'
-
-    assert_equal a, b
-    assert_equal a, d
-    refute_equal a, c
-  end
-
   def test_public?
     assert MountableFileServer::Identifier.new('public-test.png').public?
     refute MountableFileServer::Identifier.new('private-test.png').public?

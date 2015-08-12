@@ -17,7 +17,7 @@ module MountableFileServer
       type = params[:type]
       storage = Storage.new configuration
 
-      storage.store_temporary(path: path, type: type, filename: filename).to_str
+      storage.store_temporary(path: path, type: type, filename: filename)
     end
 
     get '/*' do

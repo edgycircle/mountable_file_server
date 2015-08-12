@@ -1,28 +1,19 @@
 require 'securerandom'
 
 module MountableFileServer
-  class Identifier
+  class Identifier < String
     attr_reader :type, :filename
 
+    def initialize(string)
+      @type, @filename = /(\w+)-(.+)$/.match(string).captures
+
+      raise ArgumentError.new("Unkown type `#{type}`") unless known_type?
+
+      super.freeze
+    end
+
     def self.generate_for(filename:, type:)
-      extension = File.extname filename
-
-      new "#{type}-#{SecureRandom.hex}#{extension}"
-    end
-
-    def initialize(identifier)
-      @type = /(\w+)-\w+/.match(identifier)[1]
-      @filename = /\w+-(.+)$/.match(identifier)[1]
-
-      raise ArgumentError.new("Unkown type `#{type}`") unless valid_type?
-    end
-
-    def to_str
-      "#{type}-#{filename}"
-    end
-
-    def ==(other)
-      to_str == other.to_str
+      new "#{type}-#{SecureRandom.hex}#{File.extname(filename)}"
     end
 
     def public?
@@ -30,7 +21,7 @@ module MountableFileServer
     end
 
   private
-    def valid_type?
+    def known_type?
       ['public', 'private'].include?(type)
     end
   end
