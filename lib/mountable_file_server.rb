@@ -5,6 +5,7 @@ module MountableFileServer
   require "mountable_file_server/storage"
   require "mountable_file_server/endpoint"
   require "mountable_file_server/identifier"
+  require "mountable_file_server/persistor"
   require "mountable_file_server/access"
 
   class << self
