@@ -2,28 +2,28 @@ require 'unit_helper'
 
 class IdentifierTest < UnitTestCase
   def test_generate_random_identifier_with_file_extension
-    identifier_png = MountableFileServer::Identifier.generate_for filename: 'test.png', type: 'public'
-    identifier_pdf = MountableFileServer::Identifier.generate_for filename: 'test.pdf', type: 'public'
+    identifier_png = MountableFileServer::Identifier.generate_for '.png', 'public'
+    identifier_pdf = MountableFileServer::Identifier.generate_for '.pdf', 'public'
 
     assert_match /\w+\.png$/, identifier_png
     assert_match /\w+\.pdf$/, identifier_pdf
   end
 
   def test_generate_random_identifier_with_type
-    identifier_public = MountableFileServer::Identifier.generate_for filename: 'test.png', type: 'public'
-    identifier_private = MountableFileServer::Identifier.generate_for filename: 'test.png', type: 'private'
+    identifier_public = MountableFileServer::Identifier.generate_for '.png', 'public'
+    identifier_private = MountableFileServer::Identifier.generate_for '.png', 'private'
 
     assert_match /^public-\w+/, identifier_public
     assert_match /^private-\w+/, identifier_private
   end
 
   def test_raise_error_for_unknown_types
-    assert_raises(ArgumentError) { MountableFileServer::Identifier.generate_for(filename: 'test.png', type: 'unknow') }
+    assert_raises(ArgumentError) { MountableFileServer::Identifier.generate_for('.png', 'unknow') }
     assert_raises(ArgumentError) { MountableFileServer::Identifier.new('random-test.png') }
   end
 
   def test_generate_returns_new_identifier
-    assert_instance_of MountableFileServer::Identifier, MountableFileServer::Identifier.generate_for(filename: 'test.png', type: 'public')
+    assert_instance_of MountableFileServer::Identifier, MountableFileServer::Identifier.generate_for('.png', 'public')
   end
 
   def test_new_accepts_identifier_object
