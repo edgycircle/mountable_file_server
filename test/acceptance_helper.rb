@@ -16,12 +16,12 @@ class AcceptanceTestCase < MiniTest::Test
   include PathHelper
 
   def setup
-    FileUtils.mkdir_p Rails.configuration.mountable_file_server.stored_at
-    FileUtils.mkdir_p File.join(Rails.configuration.mountable_file_server.stored_at, 'tmp')
-    FileUtils.mkdir_p File.join(Rails.configuration.mountable_file_server.stored_at, 'public')
+    FileUtils.mkdir_p MountableFileServer.configuration.stored_at
+    FileUtils.mkdir_p File.join(MountableFileServer.configuration.stored_at, 'tmp')
+    FileUtils.mkdir_p File.join(MountableFileServer.configuration.stored_at, 'public')
   end
 
   def teardown
-    FileUtils.rm_rf Rails.configuration.mountable_file_server.stored_at
+    FileUtils.rm_rf MountableFileServer.configuration.stored_at
   end
 end

@@ -6,7 +6,7 @@ module MountableFileServer
 
     attr_reader :configuration
 
-    def initialize(configuration)
+    def initialize(configuration = MountableFileServer.configuration)
       @configuration = configuration
     end
 

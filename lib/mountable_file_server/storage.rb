@@ -2,7 +2,7 @@ module MountableFileServer
   class Storage
     attr_reader :access
 
-    def initialize(configuration)
+    def initialize(configuration = MountableFileServer.configuration)
       @access = Access.new configuration
     end
 

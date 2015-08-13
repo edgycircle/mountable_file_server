@@ -6,4 +6,16 @@ module MountableFileServer
   require "mountable_file_server/endpoint"
   require "mountable_file_server/identifier"
   require "mountable_file_server/access"
- end
+
+  class << self
+    attr_writer :configuration
+  end
+
+  def self.configuration
+    @configuration ||= Configuration.new
+  end
+
+  def self.configure
+    yield(configuration)
+  end
+end

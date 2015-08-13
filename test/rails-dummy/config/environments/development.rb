@@ -34,6 +34,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  config.mountable_file_server = MountableFileServer::Configuration.new mounted_at: '/uploads', stored_at: File.join(Rails.root, 'uploads')
 end
