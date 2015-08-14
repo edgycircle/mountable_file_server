@@ -3,161 +3,81 @@ require 'tempfile'
 require 'pathname'
 
 class FileAccessorTest < UnitTestCase
-  def test_temporary_pathname_of_public_id
-    id = MountableFileServer::Identifier.new 'public-test.jpg'
-    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
+  Identifier = MountableFileServer::Identifier
+  FileAccessor = MountableFileServer::FileAccessor
+  Configuration = MountableFileServer::Configuration
 
-    assert_equal Pathname('/tmp/public-test.jpg'), file_acccessor.temporary_pathname
+  def test_temporary_pathname
+    configuration = Configuration.new stored_at: '/some/path/'
+
+    [
+      { id: 'public-test.jpg', path: '/some/path/tmp/public-test.jpg' },
+      { id: 'private-test.jpg', path: '/some/path/tmp/private-test.jpg' }
+    ].each do |pair|
+      file_acccessor = FileAccessor.new Identifier.new(pair[:id]), configuration
+      assert_equal Pathname(pair[:path]), file_acccessor.temporary_pathname
+    end
   end
 
-  def test_temporary_pathname_of_private_id
-    id = MountableFileServer::Identifier.new 'private-test.jpg'
-    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
+  def test_permanent_pathname
+    configuration = Configuration.new stored_at: '/some/path/'
 
-    assert_equal Pathname('/tmp/private-test.jpg'), file_acccessor.temporary_pathname
+    [
+      { id: 'public-test.jpg', path: '/some/path/public/public-test.jpg' },
+      { id: 'private-test.jpg', path: '/some/path/private/private-test.jpg' }
+    ].each do |pair|
+      file_acccessor = FileAccessor.new Identifier.new(pair[:id]), configuration
+      assert_equal Pathname(pair[:path]), file_acccessor.permanent_pathname
+    end
   end
 
-  def test_permanent_pathname_of_public_id
-    id = MountableFileServer::Identifier.new 'public-test.jpg'
-    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
+  def test_finds_pathname_based_on_file_location
+    [
+      { id: 'public-test.jpg', location: 'public/public-test.jpg' },
+      { id: 'public-test.jpg', location: 'tmp/public-test.jpg' },
+      { id: 'private-test.jpg', location: 'private/private-test.jpg' },
+      { id: 'private-test.jpg', location: 'tmp/private-test.jpg' }
+    ].each do |pair|
+      Dir.mktmpdir do |directory|
+        stored_at = Pathname(directory)
+        configuration = Configuration.new stored_at: stored_at
+        file = stored_at + pair[:location]
+        file.dirname.mkdir
+        file.write 'test'
 
-    assert_equal Pathname('/public/public-test.jpg'), file_acccessor.permanent_pathname
-  end
-
-  def test_permanent_pathname_of_private_id
-    id = MountableFileServer::Identifier.new 'private-test.jpg'
-    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-    assert_equal Pathname('/private/private-test.jpg'), file_acccessor.permanent_pathname
-  end
-
-  def test_pathname_of_public_id_in_temporary_storage
-    Dir.mktmpdir do |directory|
-      temporary_path = Pathname(directory) + 'tmp'
-      temporary_path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('public-', temporary_path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert_equal Pathname(file.path), file_acccessor.pathname
+        file_acccessor = FileAccessor.new Identifier.new(pair[:id]), configuration
+        assert_equal file, file_acccessor.pathname
       end
     end
   end
 
-  def test_pathname_of_private_id_in_temporary_storage
-    Dir.mktmpdir do |directory|
-      temporary_path = Pathname(directory) + 'tmp'
-      temporary_path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('private-', temporary_path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert_equal Pathname(file.path), file_acccessor.pathname
-      end
-    end
-  end
-
-  def test_pathname_of_public_id_in_permanent_storage
-    Dir.mktmpdir do |directory|
-      permanent_path = Pathname(directory) + 'public'
-      permanent_path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('public-', permanent_path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert_equal Pathname(file.path), file_acccessor.pathname
-      end
-    end
-  end
-
-  def test_pathname_of_private_id_in_permanent_storage
-    Dir.mktmpdir do |directory|
-      permanent_path = Pathname(directory) + 'private'
-      permanent_path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('private-', permanent_path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert_equal Pathname(file.path), file_acccessor.pathname
-      end
-    end
-  end
-
-  def test_pathname_raises_error_for_id_without_file
+  def test_pathname_raises_error_when_no_file_is_present
     id = MountableFileServer::Identifier.new 'public-unknown.jpg'
-    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
+    file_acccessor = MountableFileServer::FileAccessor.new id
 
     assert_raises(MountableFileServer::NoFileForIdentifier) { file_acccessor.pathname }
   end
 
-  def test_exist_returns_false_for_unknown_id
+  def test_exist_returns_false_when_no_file_is_present
     id = MountableFileServer::Identifier.new 'public-unknown.jpg'
     refute MountableFileServer::FileAccessor.new(id).exist?
   end
 
-  def test_exist_returns_true_for_id_of_public_file_in_temporary_storage
-    Dir.mktmpdir do |directory|
-      path = Pathname(directory) + 'tmp'
-      path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
+  def test_exist_checks_all_possible_file_locations
+    [
+      { id: 'public-test.jpg', location: 'public/public-test.jpg' },
+      { id: 'public-test.jpg', location: 'tmp/public-test.jpg' },
+      { id: 'private-test.jpg', location: 'private/private-test.jpg' },
+      { id: 'private-test.jpg', location: 'tmp/private-test.jpg' }
+    ].each do |pair|
+      Dir.mktmpdir do |directory|
+        stored_at = Pathname(directory)
+        configuration = Configuration.new stored_at: stored_at
+        file = stored_at + pair[:location]
+        file.dirname.mkdir
+        file.write 'test'
 
-      Tempfile.open('public-', path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert file_acccessor.exist?
-      end
-    end
-  end
-
-  def test_exist_returns_true_for_id_of_private_file_in_temporary_storage
-    Dir.mktmpdir do |directory|
-      path = Pathname(directory) + 'tmp'
-      path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('private-', path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert file_acccessor.exist?
-      end
-    end
-  end
-
-  def test_exist_returns_true_for_id_of_public_file_in_permanent_storage
-    Dir.mktmpdir do |directory|
-      path = Pathname(directory) + 'public'
-      path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('public-', path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
-        assert file_acccessor.exist?
-      end
-    end
-  end
-
-  def test_exist_returns_true_for_id_of_private_file_in_permanent_storage
-    Dir.mktmpdir do |directory|
-      path = Pathname(directory) + 'private'
-      path.mkpath
-      configuration = MountableFileServer::Configuration.new stored_at: directory
-
-      Tempfile.open('private-', path) do |file|
-        id = MountableFileServer::Identifier.new File.basename(file)
-        file_acccessor = MountableFileServer::FileAccessor.new id, configuration
-
+        file_acccessor = FileAccessor.new Identifier.new(pair[:id]), configuration
         assert file_acccessor.exist?
       end
     end
@@ -171,17 +91,12 @@ class FileAccessorTest < UnitTestCase
     assert_equal '/abc/public-test.png', file_acccessor.url
   end
 
-  def test_private_ids_do_not_have_urls
+  def test_private_id_has_no_url
     id = MountableFileServer::Identifier.new 'private-test.png'
     file_acccessor = MountableFileServer::FileAccessor.new id
 
     assert_raises(MountableFileServer::NotAccessibleViaURL) do
       file_acccessor.url
     end
-  end
-
-  private
-  def configuration
-    MountableFileServer::Configuration.new stored_at: '/'
   end
 end
