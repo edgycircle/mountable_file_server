@@ -163,6 +163,23 @@ class FileAccessorTest < UnitTestCase
     end
   end
 
+  def test_public_id_has_an_url
+    configuration = MountableFileServer::Configuration.new mounted_at: '/abc'
+    id = MountableFileServer::Identifier.new 'public-test.png'
+    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
+
+    assert_equal '/abc/public-test.png', file_acccessor.url
+  end
+
+  def test_private_ids_do_not_have_urls
+    id = MountableFileServer::Identifier.new 'private-test.png'
+    file_acccessor = MountableFileServer::FileAccessor.new id
+
+    assert_raises(MountableFileServer::NotAccessibleViaURL) do
+      file_acccessor.url
+    end
+  end
+
   private
   def configuration
     MountableFileServer::Configuration.new stored_at: '/'

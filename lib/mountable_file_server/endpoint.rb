@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'url_safe_base64'
 require 'mini_magick'
+require 'pathname'
 
 module MountableFileServer
   class Endpoint < Sinatra::Base
@@ -12,12 +13,11 @@ module MountableFileServer
     end
 
     post '/' do
-      path = params[:file][:tempfile].path
-      filename = params[:file][:filename]
+      pathname = Pathname(params[:file][:tempfile].path)
       type = params[:type]
-      storage = Storage.new configuration
+      adapter = Adapter.new configuration
 
-      storage.store_temporary(path: path, type: type, filename: filename)
+      adapter.store_temporary pathname, type, pathname.extname
     end
 
     get '/*' do

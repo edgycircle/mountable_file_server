@@ -7,6 +7,8 @@ module MountableFileServer
   require "mountable_file_server/identifier"
   require "mountable_file_server/persistor"
   require "mountable_file_server/access"
+  require "mountable_file_server/adapter"
+  require "mountable_file_server/file_accessor"
 
   class << self
     attr_writer :configuration
