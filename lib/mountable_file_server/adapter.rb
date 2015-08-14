@@ -18,12 +18,14 @@ module MountableFileServer
       id
     end
 
-    def move_to_permanent_storage(identifier)
-      Storage.new(Persistor, configuration).move_to_permanent_storage identifier
+    def move_to_permanent_storage(id)
+      id = Identifier.new id
+      Storage.new(Persistor, configuration).move_to_permanent_storage id
     end
 
-    def remove_from_permanent_storage(identifier)
-      Storage.new(Persistor, configuration).remove_from_permanent_storage identifier
+    def remove_from_permanent_storage(id)
+      id = Identifier.new id
+      Storage.new(Persistor, configuration).remove_from_permanent_storage id
     end
 
     def url_for(id)
