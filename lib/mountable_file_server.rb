@@ -8,7 +8,6 @@ module MountableFileServer
 
   require "mountable_file_server/adapter"
   require "mountable_file_server/endpoint"
-  require "mountable_file_server/access"
 
   class << self
     attr_writer :configuration
