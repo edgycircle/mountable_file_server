@@ -1,13 +1,15 @@
 require 'securerandom'
 
 module MountableFileServer
+  UnknownType = Class.new(ArgumentError)
+
   class Identifier < String
     attr_reader :type, :filename
 
     def initialize(string)
       @type, @filename = /(\w+)-(.+)$/.match(string).captures
 
-      raise ArgumentError.new("Unkown type `#{type}`") unless known_type?
+      raise UnknownType.new(type) unless known_type?
 
       super.freeze
     end
@@ -20,7 +22,7 @@ module MountableFileServer
       type == 'public'
     end
 
-  private
+    private
     def known_type?
       ['public', 'private'].include?(type)
     end
