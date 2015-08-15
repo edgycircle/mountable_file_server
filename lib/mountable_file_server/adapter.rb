@@ -8,24 +8,24 @@ module MountableFileServer
 
     def store_temporary(io, type, extension)
       id = random_identifier type, extension
-      Storage.new(Persistor, configuration).store_temporary io, id
+      Storage.new(configuration).store_temporary id, io
       id
     end
 
     def store_permanent(io, type, extension)
       id = random_identifier type, extension
-      Storage.new(Persistor, configuration).store_permanent io, id
+      Storage.new(configuration).store_permanent id, io
       id
     end
 
     def move_to_permanent_storage(id)
       id = Identifier.new id
-      Storage.new(Persistor, configuration).move_to_permanent_storage id
+      Storage.new(configuration).move_to_permanent_storage id
     end
 
     def remove_from_permanent_storage(id)
       id = Identifier.new id
-      Storage.new(Persistor, configuration).remove_from_permanent_storage id
+      Storage.new(configuration).remove_from_permanent_storage id
     end
 
     def url_for(id)

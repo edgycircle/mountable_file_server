@@ -1,36 +1,34 @@
 module MountableFileServer
   class Storage
-    attr_reader :persistor_class, :configuration
+    attr_reader :configuration
 
-    def initialize(persistor_class = Persistor, configuration = MountableFileServer.configuration)
+    def initialize(configuration = MountableFileServer.configuration)
       @configuration = configuration
-      @persistor_class = persistor_class
     end
 
-    def store_temporary(io, identifier)
-      pathname = FileAccessor.new(identifier, configuration).temporary_pathname
-      persistor = persistor_class.new pathname
-      persistor.save io
+    def store_temporary(id, input)
+      destination = FileAccessor.new(id, configuration).temporary_pathname
+      destination.dirname.mkpath
+      IO.copy_stream input, destination
     end
 
-    def store_permanent(io, identifier)
-      pathname = FileAccessor.new(identifier, configuration).permanent_pathname
-      persistor = persistor_class.new pathname
-      persistor.save io
+    def store_permanent(id, input)
+      destination = FileAccessor.new(id, configuration).permanent_pathname
+      destination.dirname.mkpath
+      IO.copy_stream input, destination
     end
 
-    def move_to_permanent_storage(identifier)
-      accessor = FileAccessor.new(identifier, configuration)
-      temporary_pathname = accessor.temporary_pathname
-      permanent_pathname = accessor.permanent_pathname
-      persistor = persistor_class.new temporary_pathname
-      persistor.rename permanent_pathname
+    def move_to_permanent_storage(id)
+      source = FileAccessor.new(id, configuration).temporary_pathname
+      destination = FileAccessor.new(id, configuration).permanent_pathname
+      destination.dirname.mkpath
+
+      source.rename destination
     end
 
-    def remove_from_permanent_storage(identifier)
-      pathname = FileAccessor.new(identifier, configuration).permanent_pathname
-      persistor = persistor_class.new pathname
-      persistor.delete
+    def remove_from_permanent_storage(id)
+      source = FileAccessor.new(id, configuration).permanent_pathname
+      source.delete
     end
   end
 end

@@ -3,62 +3,73 @@ require 'stringio'
 require 'tempfile'
 
 class StorageTest < UnitTestCase
-  def test_store_temporary
-    stream = StringIO.new 'test'
-    id = MountableFileServer::Identifier.new 'public-test.txt'
-    pathname = MountableFileServer::FileAccessor.new(id).temporary_pathname
+  attr_reader :configuration, :id, :file_accessor, :storage
 
-    persistor = MiniTest::Mock.new
-    persistor.expect :new, persistor, [pathname]
-    persistor.expect :save, nil, [stream]
+  Storage = MountableFileServer::Storage
+  Identifier = MountableFileServer::Identifier
+  FileAccessor = MountableFileServer::FileAccessor
+  Configuration = MountableFileServer::Configuration
 
-    storage = MountableFileServer::Storage.new persistor
-    storage.store_temporary stream, id
-
-    assert persistor.verify
+  def setup
+    @configuration = Configuration.new stored_at: Dir.mktmpdir
+    @id = Identifier.new 'public-test.txt'
+    @file_accessor = FileAccessor.new id, configuration
+    @storage = Storage.new configuration
   end
 
-  def test_store_permanent
-    stream = StringIO.new 'test'
-    id = MountableFileServer::Identifier.new 'public-test.txt'
-    pathname = MountableFileServer::FileAccessor.new(id).permanent_pathname
-
-    persistor = MiniTest::Mock.new
-    persistor.expect :new, persistor, [pathname]
-    persistor.expect :save, nil, [stream]
-
-    storage = MountableFileServer::Storage.new persistor
-    storage.store_permanent stream, id
-
-    assert persistor.verify
+  def teardown
+    Pathname(configuration.stored_at).rmtree
   end
 
-  def test_remove_from_permanent_storage
-    id = MountableFileServer::Identifier.new 'public-test.txt'
-    pathname = MountableFileServer::FileAccessor.new(id).permanent_pathname
+  def test_store_io_input_temporary
+    storage.store_temporary id, StringIO.new('test')
+    assert_equal 'test', file_accessor.temporary_pathname.read
+  end
 
-    persistor = MiniTest::Mock.new
-    persistor.expect :new, persistor, [pathname]
-    persistor.expect :delete, nil, []
+  def test_store_io_input_permanent
+    storage.store_permanent id, StringIO.new('test')
+    assert_equal 'test', file_accessor.permanent_pathname.read
+  end
 
-    storage = MountableFileServer::Storage.new persistor
-    storage.remove_from_permanent_storage id
+  def test_store_pathname_input_temporary
+    Tempfile.open('input') do |file|
+      file.write 'test'
+      file.rewind
 
-    assert persistor.verify
+      storage.store_temporary id, file.path
+      assert_equal 'test', file_accessor.temporary_pathname.read
+    end
+  end
+
+  def test_store_pathname_input_permanent
+    Tempfile.open('input') do |file|
+      file.write 'test'
+      file.rewind
+
+      storage.store_permanent id, file.path
+      assert_equal 'test', file_accessor.permanent_pathname.read
+    end
   end
 
   def test_move_to_permanent_storage
-    id = MountableFileServer::Identifier.new 'public-test.txt'
-    pathname_a = MountableFileServer::FileAccessor.new(id).temporary_pathname
-    pathname_b = MountableFileServer::FileAccessor.new(id).permanent_pathname
+    temporary_pathname = file_accessor.temporary_pathname
+    temporary_pathname.dirname.mkpath
+    temporary_pathname.write 'test'
 
-    persistor = MiniTest::Mock.new
-    persistor.expect :new, persistor, [pathname_a]
-    persistor.expect :rename, nil, [pathname_b]
-
-    storage = MountableFileServer::Storage.new persistor
     storage.move_to_permanent_storage id
 
-    assert persistor.verify
+    refute file_accessor.temporary_pathname.file?
+    assert file_accessor.permanent_pathname.file?
+    assert_equal 'test', file_accessor.permanent_pathname.read
+  end
+
+  def test_remove_from_permanent_storage
+    permanent_pathname = file_accessor.permanent_pathname
+    permanent_pathname.dirname.mkpath
+    permanent_pathname.write 'test'
+
+    storage.remove_from_permanent_storage id
+
+    refute file_accessor.permanent_pathname.file?
   end
 end
