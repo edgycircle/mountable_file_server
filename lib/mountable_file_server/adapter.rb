@@ -6,15 +6,15 @@ module MountableFileServer
       @configuration = configuration
     end
 
-    def store_temporary(io, type, extension)
-      id = random_identifier type, extension
-      Storage.new(configuration).store_temporary id, io
+    def store_temporary(input, type, extension)
+      id = generate_random_id type, extension
+      Storage.new(configuration).store_temporary id, input
       id
     end
 
-    def store_permanent(io, type, extension)
-      id = random_identifier type, extension
-      Storage.new(configuration).store_permanent id, io
+    def store_permanent(input, type, extension)
+      id = generate_random_id type, extension
+      Storage.new(configuration).store_permanent id, input
       id
     end
 
@@ -39,7 +39,7 @@ module MountableFileServer
     end
 
     private
-    def random_identifier(type, extension)
+    def generate_random_id(type, extension)
       loop do
         id = Identifier.generate_for extension, type
         break id unless FileAccessor.new(id, configuration).exist?
