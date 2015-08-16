@@ -1,4 +1,4 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'url_safe_base64'
 require 'mini_magick'
 require 'pathname'

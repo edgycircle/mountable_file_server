@@ -31,7 +31,7 @@ module MountableFileServer
     def url
       raise NotAccessibleViaURL unless id.public?
 
-      (Pathname(configuration.mounted_at) + id).to_s
+      URI.new (Pathname(configuration.mounted_at) + id).to_s
     end
 
     private

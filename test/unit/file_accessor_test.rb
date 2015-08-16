@@ -6,6 +6,7 @@ class FileAccessorTest < UnitTestCase
   Identifier = MountableFileServer::Identifier
   FileAccessor = MountableFileServer::FileAccessor
   Configuration = MountableFileServer::Configuration
+  URI = MountableFileServer::URI
 
   def test_temporary_pathname
     configuration = Configuration.new stored_at: '/some/path/'
@@ -52,15 +53,15 @@ class FileAccessorTest < UnitTestCase
   end
 
   def test_pathname_raises_error_when_no_file_is_present
-    id = MountableFileServer::Identifier.new 'public-unknown.jpg'
-    file_acccessor = MountableFileServer::FileAccessor.new id
+    id = Identifier.new 'public-unknown.jpg'
+    file_acccessor = FileAccessor.new id
 
     assert_raises(MountableFileServer::NoFileForIdentifier) { file_acccessor.pathname }
   end
 
   def test_exist_returns_false_when_no_file_is_present
-    id = MountableFileServer::Identifier.new 'public-unknown.jpg'
-    refute MountableFileServer::FileAccessor.new(id).exist?
+    id = Identifier.new 'public-unknown.jpg'
+    refute FileAccessor.new(id).exist?
   end
 
   def test_exist_checks_all_possible_file_locations
@@ -84,16 +85,17 @@ class FileAccessorTest < UnitTestCase
   end
 
   def test_public_id_has_an_url
-    configuration = MountableFileServer::Configuration.new mounted_at: '/abc'
-    id = MountableFileServer::Identifier.new 'public-test.png'
-    file_acccessor = MountableFileServer::FileAccessor.new id, configuration
+    configuration = Configuration.new mounted_at: '/abc'
+    id = Identifier.new 'public-test.png'
+    file_acccessor = FileAccessor.new id, configuration
 
     assert_equal '/abc/public-test.png', file_acccessor.url
+    assert_instance_of URI, file_acccessor.url
   end
 
   def test_private_id_has_no_url
-    id = MountableFileServer::Identifier.new 'private-test.png'
-    file_acccessor = MountableFileServer::FileAccessor.new id
+    id = Identifier.new 'private-test.png'
+    file_acccessor = FileAccessor.new id
 
     assert_raises(MountableFileServer::NotAccessibleViaURL) do
       file_acccessor.url
