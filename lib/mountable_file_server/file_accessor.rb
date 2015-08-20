@@ -1,27 +1,27 @@
 require 'pathname'
 
 module MountableFileServer
-  NoFileForIdentifier = Class.new(ArgumentError)
+  MissingFile = Class.new(ArgumentError)
   NotAccessibleViaURL = Class.new(ArgumentError)
 
   class FileAccessor
-    attr_reader :id, :configuration
+    attr_reader :uid, :configuration
 
-    def initialize(id, configuration = MountableFileServer.configuration)
-      @id = id
+    def initialize(uid, configuration = MountableFileServer.configuration)
+      @uid = uid
       @configuration = configuration
     end
 
     def temporary_pathname
-      Pathname(configuration.stored_at) + 'tmp' + id
+      Pathname(configuration.stored_at) + 'tmp' + uid
     end
 
     def permanent_pathname
-      Pathname(configuration.stored_at) + id.type +  id
+      Pathname(configuration.stored_at) + uid.type +  uid
     end
 
     def pathname
-      pathnames.find(-> { raise NoFileForIdentifier }) { |p| p.file? }
+      pathnames.find(-> { raise MissingFile }) { |p| p.file? }
     end
 
     def exist?
@@ -29,9 +29,9 @@ module MountableFileServer
     end
 
     def url
-      raise NotAccessibleViaURL unless id.public?
+      raise NotAccessibleViaURL unless uid.public?
 
-      URI.new (Pathname(configuration.mounted_at) + id).to_s
+      URI.new (Pathname(configuration.mounted_at) + uid).to_s
     end
 
     private

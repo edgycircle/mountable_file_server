@@ -8,8 +8,8 @@ module MountableFileServer
       super.freeze
     end
 
-    def id
-      Identifier.new filename
+    def uid
+      UniqueIdentifier.new filename
     end
 
     def encoded_processing_instructions

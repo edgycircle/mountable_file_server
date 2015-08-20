@@ -3,7 +3,7 @@ require 'securerandom'
 module MountableFileServer
   UnknownType = Class.new(ArgumentError)
 
-  class Identifier < String
+  class UniqueIdentifier < String
     attr_reader :type, :filename
 
     def initialize(string)

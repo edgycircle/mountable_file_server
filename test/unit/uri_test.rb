@@ -2,18 +2,18 @@ require 'unit_helper'
 
 class URITest < UnitTestCase
   URI = MountableFileServer::URI
-  Identifier = MountableFileServer::Identifier
+  UniqueIdentifier = MountableFileServer::UniqueIdentifier
 
   def test_acts_like_a_string
     uri = URI.new '/uploads/public-test.jpg'
     assert_equal '/uploads/public-test.jpg', uri
   end
 
-  def test_extract_id
+  def test_extract_uid
     uri = URI.new '/uploads/public-test.jpg'
 
-    assert_instance_of Identifier, uri.id
-    assert_equal 'public-test.jpg', uri.id
+    assert_instance_of UniqueIdentifier, uri.uid
+    assert_equal 'public-test.jpg', uri.uid
   end
 
   def test_encoded_processing_instructions

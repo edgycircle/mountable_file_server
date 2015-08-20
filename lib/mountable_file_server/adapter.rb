@@ -7,42 +7,42 @@ module MountableFileServer
     end
 
     def store_temporary(input, type, extension)
-      id = generate_random_id type, extension
-      Storage.new(configuration).store_temporary id, input
-      id
+      uid = generate_random_uid type, extension
+      Storage.new(configuration).store_temporary uid, input
+      uid
     end
 
     def store_permanent(input, type, extension)
-      id = generate_random_id type, extension
-      Storage.new(configuration).store_permanent id, input
-      id
+      uid = generate_random_uid type, extension
+      Storage.new(configuration).store_permanent uid, input
+      uid
     end
 
-    def move_to_permanent_storage(id)
-      id = Identifier.new id
-      Storage.new(configuration).move_to_permanent_storage id
+    def move_to_permanent_storage(uid)
+      uid = UniqueIdentifier.new uid
+      Storage.new(configuration).move_to_permanent_storage uid
     end
 
-    def remove_from_permanent_storage(id)
-      id = Identifier.new id
-      Storage.new(configuration).remove_from_permanent_storage id
+    def remove_from_permanent_storage(uid)
+      uid = UniqueIdentifier.new uid
+      Storage.new(configuration).remove_from_permanent_storage uid
     end
 
-    def url_for(id)
-      id = Identifier.new id
-      FileAccessor.new(id, configuration).url
+    def url_for(uid)
+      uid = UniqueIdentifier.new uid
+      FileAccessor.new(uid, configuration).url
     end
 
-    def pathname_for(id)
-      id = Identifier.new id
-      FileAccessor.new(id, configuration).pathname
+    def pathname_for(uid)
+      uid = UniqueIdentifier.new uid
+      FileAccessor.new(uid, configuration).pathname
     end
 
     private
-    def generate_random_id(type, extension)
+    def generate_random_uid(type, extension)
       loop do
-        id = Identifier.generate_for extension, type
-        break id unless FileAccessor.new(id, configuration).exist?
+        uid = UniqueIdentifier.generate_for extension, type
+        break uid unless FileAccessor.new(uid, configuration).exist?
       end
     end
   end

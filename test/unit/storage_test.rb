@@ -3,17 +3,17 @@ require 'stringio'
 require 'tempfile'
 
 class StorageTest < UnitTestCase
-  attr_reader :configuration, :id, :file_accessor, :storage
+  attr_reader :configuration, :uid, :file_accessor, :storage
 
   Storage = MountableFileServer::Storage
-  Identifier = MountableFileServer::Identifier
+  UniqueIdentifier = MountableFileServer::UniqueIdentifier
   FileAccessor = MountableFileServer::FileAccessor
   Configuration = MountableFileServer::Configuration
 
   def setup
     @configuration = Configuration.new stored_at: Dir.mktmpdir
-    @id = Identifier.new 'public-test.txt'
-    @file_accessor = FileAccessor.new id, configuration
+    @uid = UniqueIdentifier.new 'public-test.txt'
+    @file_accessor = FileAccessor.new uid, configuration
     @storage = Storage.new configuration
   end
 
@@ -22,12 +22,12 @@ class StorageTest < UnitTestCase
   end
 
   def test_store_io_input_temporary
-    storage.store_temporary id, StringIO.new('test')
+    storage.store_temporary uid, StringIO.new('test')
     assert_equal 'test', file_accessor.temporary_pathname.read
   end
 
   def test_store_io_input_permanent
-    storage.store_permanent id, StringIO.new('test')
+    storage.store_permanent uid, StringIO.new('test')
     assert_equal 'test', file_accessor.permanent_pathname.read
   end
 
@@ -36,7 +36,7 @@ class StorageTest < UnitTestCase
       file.write 'test'
       file.rewind
 
-      storage.store_temporary id, file.path
+      storage.store_temporary uid, file.path
       assert_equal 'test', file_accessor.temporary_pathname.read
     end
   end
@@ -46,7 +46,7 @@ class StorageTest < UnitTestCase
       file.write 'test'
       file.rewind
 
-      storage.store_permanent id, file.path
+      storage.store_permanent uid, file.path
       assert_equal 'test', file_accessor.permanent_pathname.read
     end
   end
@@ -56,7 +56,7 @@ class StorageTest < UnitTestCase
     temporary_pathname.dirname.mkpath
     temporary_pathname.write 'test'
 
-    storage.move_to_permanent_storage id
+    storage.move_to_permanent_storage uid
 
     refute file_accessor.temporary_pathname.file?
     assert file_accessor.permanent_pathname.file?
@@ -68,7 +68,7 @@ class StorageTest < UnitTestCase
     permanent_pathname.dirname.mkpath
     permanent_pathname.write 'test'
 
-    storage.remove_from_permanent_storage id
+    storage.remove_from_permanent_storage uid
 
     refute file_accessor.permanent_pathname.file?
   end
