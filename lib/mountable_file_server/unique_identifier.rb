@@ -14,7 +14,7 @@ module MountableFileServer
       super.freeze
     end
 
-    def self.generate_for(extension, type)
+    def self.generate_for(type, extension)
       new "#{type}-#{SecureRandom.hex}#{extension}"
     end
 

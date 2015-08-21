@@ -23,7 +23,7 @@ class AdapterTest < UnitTestCase
       UniqueIdentifier.new('public-a.txt'),
       UniqueIdentifier.new('public-b.txt')
     ]
-    stub(UniqueIdentifier).generate_for('.txt', 'public') { random_identifiers.shift }
+    stub(UniqueIdentifier).generate_for('public', '.txt') { random_identifiers.shift }
 
     identifier_a = adapter.store_temporary io, 'public', '.txt'
     identifier_b = adapter.store_temporary io, 'public', '.txt'
@@ -40,7 +40,7 @@ class AdapterTest < UnitTestCase
       UniqueIdentifier.new('public-a.txt'),
       UniqueIdentifier.new('public-b.txt')
     ]
-    stub(UniqueIdentifier).generate_for('.txt', 'public') { random_identifiers.shift }
+    stub(UniqueIdentifier).generate_for('public', '.txt') { random_identifiers.shift }
 
     identifier_a = adapter.store_permanent io, 'public', '.txt'
     identifier_b = adapter.store_permanent io, 'public', '.txt'

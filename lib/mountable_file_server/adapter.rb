@@ -41,7 +41,7 @@ module MountableFileServer
     private
     def generate_random_uid(type, extension)
       loop do
-        uid = UniqueIdentifier.generate_for extension, type
+        uid = UniqueIdentifier.generate_for type, extension
         break uid unless FileAccessor.new(uid, configuration).exist?
       end
     end

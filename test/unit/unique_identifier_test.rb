@@ -4,28 +4,28 @@ class UniqueIdentifierTest < UnitTestCase
   UniqueIdentifier = MountableFileServer::UniqueIdentifier
 
   def test_generate_uid_for_extension
-    uid = UniqueIdentifier.generate_for '.png', 'public'
+    uid = UniqueIdentifier.generate_for 'public', '.png'
     assert_match /\w+\.png$/, uid
   end
 
   def test_generate_public_uid
-    uid = UniqueIdentifier.generate_for '.png', 'public'
+    uid = UniqueIdentifier.generate_for 'public', '.png'
     assert_match /^public-\w+/, uid
   end
 
   def test_generate_private_uid
-    uid = UniqueIdentifier.generate_for '.png', 'private'
+    uid = UniqueIdentifier.generate_for 'private', '.png'
     assert_match /^private-\w+/, uid
   end
 
   def test_generate_accepts_only_known_types
     assert_raises(MountableFileServer::UnknownType) do
-      UniqueIdentifier.generate_for '.png', 'unknow'
+      UniqueIdentifier.generate_for 'unknow', '.png'
     end
   end
 
   def test_generate_returns_new_uid
-    assert_instance_of UniqueIdentifier, UniqueIdentifier.generate_for('.png', 'public')
+    assert_instance_of UniqueIdentifier, UniqueIdentifier.generate_for('public', '.png')
   end
 
   def test_instantiation_with_string
