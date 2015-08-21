@@ -7,4 +7,6 @@ rvm:
 before_script:
   - cd test/rails-dummy
   - bundle exec rake db:create db:migrate
-script: bundle exec rake test
+script:
+  - cd ../../
+  - bundle exec rake test
