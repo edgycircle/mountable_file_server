@@ -44,7 +44,7 @@ class TestNormalTesting < IntegrationTestCase
   end
 
   def configuration
-    MountableFileServer::Configuration.new mounted_at: '', stored_at: @stored_at
+    MountableFileServer::Configuration.new '', @stored_at
   end
 
   def app

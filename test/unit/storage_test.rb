@@ -11,7 +11,7 @@ class StorageTest < UnitTestCase
   Configuration = MountableFileServer::Configuration
 
   def setup
-    @configuration = Configuration.new stored_at: Dir.mktmpdir
+    @configuration = Configuration.new '', Dir.mktmpdir
     @uid = UniqueIdentifier.new 'public-test.txt'
     @file_accessor = FileAccessor.new uid, configuration
     @storage = Storage.new configuration

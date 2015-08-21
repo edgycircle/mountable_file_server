@@ -50,7 +50,7 @@ class AdapterTest < UnitTestCase
   end
 
   def test_url_of_public_uid_is_returned
-    configuration = Configuration.new mounted_at: '/abc'
+    configuration = Configuration.new '/abc'
 
     [
       'public-test.png',
@@ -81,7 +81,7 @@ class AdapterTest < UnitTestCase
       Dir.mktmpdir do |directory|
         path = Pathname(directory) + combination[:directory]
         path.mkpath
-        configuration = Configuration.new stored_at: directory
+        configuration = Configuration.new '', directory
 
         Tempfile.open(combination[:filename], path) do |file|
           uid = UniqueIdentifier.new File.basename(file)
@@ -102,7 +102,7 @@ class AdapterTest < UnitTestCase
       Dir.mktmpdir do |directory|
         path = Pathname(directory) + combination[:directory]
         path.mkpath
-        configuration = Configuration.new stored_at: directory
+        configuration = Configuration.new '', directory
 
         Tempfile.open(combination[:filename], path) do |file|
           uid = File.basename(file)
@@ -115,6 +115,6 @@ class AdapterTest < UnitTestCase
 
   private
   def configuration
-    Configuration.new stored_at: @stored_at
+    Configuration.new '', @stored_at
   end
 end

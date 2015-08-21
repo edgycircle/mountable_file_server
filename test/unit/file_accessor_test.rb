@@ -9,7 +9,7 @@ class FileAccessorTest < UnitTestCase
   URI = MountableFileServer::URI
 
   def test_temporary_pathname
-    configuration = Configuration.new stored_at: '/some/path/'
+    configuration = Configuration.new '', '/some/path/'
 
     [
       { uid: 'public-test.jpg', path: '/some/path/tmp/public-test.jpg' },
@@ -21,7 +21,7 @@ class FileAccessorTest < UnitTestCase
   end
 
   def test_permanent_pathname
-    configuration = Configuration.new stored_at: '/some/path/'
+    configuration = Configuration.new '', '/some/path/'
 
     [
       { uid: 'public-test.jpg', path: '/some/path/public/public-test.jpg' },
@@ -41,7 +41,7 @@ class FileAccessorTest < UnitTestCase
     ].each do |pair|
       Dir.mktmpdir do |directory|
         stored_at = Pathname(directory)
-        configuration = Configuration.new stored_at: stored_at
+        configuration = Configuration.new '', stored_at
         file = stored_at + pair[:location]
         file.dirname.mkdir
         file.write 'test'
@@ -73,7 +73,7 @@ class FileAccessorTest < UnitTestCase
     ].each do |pair|
       Dir.mktmpdir do |directory|
         stored_at = Pathname(directory)
-        configuration = Configuration.new stored_at: stored_at
+        configuration = Configuration.new '', stored_at
         file = stored_at + pair[:location]
         file.dirname.mkdir
         file.write 'test'
@@ -85,7 +85,7 @@ class FileAccessorTest < UnitTestCase
   end
 
   def test_public_uid_has_an_url
-    configuration = Configuration.new mounted_at: '/abc'
+    configuration = Configuration.new '/abc'
     uid = UniqueIdentifier.new 'public-test.png'
     file_acccessor = FileAccessor.new uid, configuration
 
