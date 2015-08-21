@@ -24,9 +24,11 @@
       if (xhr.readyState === 4 && xhr.status === 200) {
         finishedUploads.push(uploadId);
 
+        response = JSON.parse(xhr.responseText);
+
         dispatchEvent($element, 'upload:success', {
           uploadId: uploadId,
-          identifier: xhr.responseText,
+          uid: response.uid,
           wasLastUpload: lastUploadId == finishedUploads.length
         });
       }

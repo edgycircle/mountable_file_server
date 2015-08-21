@@ -16,8 +16,11 @@ module MountableFileServer
       pathname = Pathname(params[:file][:tempfile].path)
       type = params[:type]
       adapter = Adapter.new configuration
+      uid = adapter.store_temporary(pathname, type, pathname.extname)
 
-      adapter.store_temporary pathname, type, pathname.extname
+
+      content_type :json
+      { uid: uid }.to_json
     end
 
     get '/*' do

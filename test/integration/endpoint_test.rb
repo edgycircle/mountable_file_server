@@ -1,4 +1,5 @@
 require 'integration_helper'
+require 'json'
 
 class TestNormalTesting < IntegrationTestCase
   def setup
@@ -21,7 +22,8 @@ class TestNormalTesting < IntegrationTestCase
 
   def test_upload_of_public_file_stores_it_temporarly
     post '/', file: Rack::Test::UploadedFile.new(fixture_path('david.jpg'), 'image/jpeg'), type: 'public'
-    assert File.file?(File.join(configuration.stored_at, 'tmp', last_response.body))
+    result = JSON.parse(last_response.body)
+    assert File.file?(File.join(configuration.stored_at, 'tmp', result['uid']))
   end
 
   def test_public_files_are_accessible

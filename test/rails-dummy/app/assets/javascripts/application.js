@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var $hiddenInput = document.createElement('input');
 
-    $hiddenInput.value = event.detail.identifier;
+    $hiddenInput.value = event.detail.uid;
     $hiddenInput.name = this.name;
     $hiddenInput.type = 'hidden';
     this.parentNode.insertBefore($hiddenInput, this.nextSibling);
