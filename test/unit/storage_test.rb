@@ -54,7 +54,8 @@ class StorageTest < UnitTestCase
   def test_move_to_permanent_storage
     temporary_pathname = file_accessor.temporary_pathname
     temporary_pathname.dirname.mkpath
-    temporary_pathname.write 'test'
+
+    File.open(temporary_pathname, 'w') { |f| f.write 'test' }
 
     storage.move_to_permanent_storage uid
 
@@ -66,7 +67,8 @@ class StorageTest < UnitTestCase
   def test_remove_from_permanent_storage
     permanent_pathname = file_accessor.permanent_pathname
     permanent_pathname.dirname.mkpath
-    permanent_pathname.write 'test'
+
+    File.open(permanent_pathname, 'w') { |f| f.write 'test' }
 
     storage.remove_from_permanent_storage uid
 

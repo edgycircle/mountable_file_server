@@ -42,12 +42,13 @@ class FileAccessorTest < UnitTestCase
       Dir.mktmpdir do |directory|
         stored_at = Pathname(directory)
         configuration = Configuration.new '', stored_at
-        file = stored_at + pair[:location]
-        file.dirname.mkdir
-        file.write 'test'
+        pathname = stored_at + pair[:location]
+        pathname.dirname.mkdir
+
+        File.open(pathname, 'w') { |f| f.write 'test' }
 
         file_acccessor = FileAccessor.new UniqueIdentifier.new(pair[:uid]), configuration
-        assert_equal file, file_acccessor.pathname
+        assert_equal pathname, file_acccessor.pathname
       end
     end
   end
@@ -74,9 +75,10 @@ class FileAccessorTest < UnitTestCase
       Dir.mktmpdir do |directory|
         stored_at = Pathname(directory)
         configuration = Configuration.new '', stored_at
-        file = stored_at + pair[:location]
-        file.dirname.mkdir
-        file.write 'test'
+        pathname = stored_at + pair[:location]
+        pathname.dirname.mkdir
+
+        File.open(pathname, 'w') { |f| f.write 'test' }
 
         file_acccessor = FileAccessor.new UniqueIdentifier.new(pair[:uid]), configuration
         assert file_acccessor.exist?
