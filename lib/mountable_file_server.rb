@@ -1,17 +1,10 @@
+require "dry-configurable"
+
 require "mountable_file_server/version"
 
 module MountableFileServer
-  require "mountable_file_server/configuration"
+  extend Dry::Configurable
 
-  class << self
-    attr_writer :configuration
-  end
-
-  def self.configuration
-    @configuration ||= Configuration.new
-  end
-
-  def self.configure
-    yield(configuration)
-  end
+  setting :base_url
+  setting :storage_path
 end

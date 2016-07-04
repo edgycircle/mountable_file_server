@@ -32,4 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "sinatra", "~> 1.4.5"
   spec.add_runtime_dependency "mini_magick"
   spec.add_runtime_dependency "url_safe_base64"
+
+  spec.add_runtime_dependency "dry-configurable", "~> 0.1.6"
 end
