@@ -36,7 +36,7 @@ class TestServer < IntegrationTestCase
     get fid
 
     Dir.mktmpdir('downloads') do |dir|
-      File.open(File.join(dir, 'test.png'), 'w+') { |file| file.write(last_response.body) }
+      File.open(File.join(dir, 'test.png'), 'wb') { |file| file.write(last_response.body) }
       assert_equal Pathname(fixture_path('image.png')).read, Pathname(File.join(dir, 'test.png')).read
     end
   end
@@ -65,7 +65,7 @@ class TestServer < IntegrationTestCase
     get fid
 
     Dir.mktmpdir('downloads') do |dir|
-      File.open(File.join(dir, 'test.png'), 'w+') { |file| file.write(last_response.body) }
+      File.open(File.join(dir, 'test.png'), 'wb') { |file| file.write(last_response.body) }
       assert_equal Pathname(fixture_path('image.png')).read, Pathname(File.join(dir, 'test.png')).read
     end
   end

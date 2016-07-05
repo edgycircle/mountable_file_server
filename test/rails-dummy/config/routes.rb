@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :users
 
-  mount MountableFileServer::Endpoint, at: MountableFileServer.configuration.mounted_at
+  mount MountableFileServer::Server, at: '/uploads'
 end

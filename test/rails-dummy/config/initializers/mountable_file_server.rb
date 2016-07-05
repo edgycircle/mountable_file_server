@@ -1,9 +1,9 @@
-MountableFileServer.configure do |configuration|
-  configuration.mounted_at = '/uploads'
+MountableFileServer.configure do |config|
+  config.base_url = 'http://test.test/uploads/'
 
   if Rails.env.test?
-    configuration.stored_at = File.join(Rails.root, 'tmp', 'test-uploads')
+    config.storage_path = File.join(Rails.root, 'tmp', 'test-uploads')
   else
-    configuration.stored_at = File.join(Rails.root, 'uploads')
+    config.storage_path = File.join(Rails.root, 'uploads')
   end
 end
