@@ -24,6 +24,11 @@ class TestServer < IntegrationTestCase
     assert_equal 201, last_response.status
     assert_equal 'application/json', last_response.headers['Content-Type']
     assert_match /public-\w{32}\.png/, result[:fid]
+    assert_equal "http://test.test/uploads/#{result[:fid]}", result[:url]
+    assert_equal File.size(fixture_path('image.png')), result[:metadata][:size]
+    assert_equal 'image/png', result[:metadata][:content_type]
+    assert_equal 62, result[:metadata][:width]
+    assert_equal 62, result[:metadata][:height]
   end
 
   def test_temporary_file_download

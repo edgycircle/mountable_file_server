@@ -33,8 +33,9 @@ module MountableFileServer
     end
 
     def url_for(uid)
-      uid = UniqueIdentifier.new uid
-      FileAccessor.new(uid, configuration).url
+      # uid = UniqueIdentifier.new uid
+      # FileAccessor.new(uid, configuration).url
+      configuration.base_url + uid
     end
 
     def pathname_for(uid)
