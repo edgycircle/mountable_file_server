@@ -2,7 +2,6 @@ require 'acceptance_helper'
 
 class TestFormInteractions < AcceptanceTestCase
   def test_upload_client_side_interaction
-    skip 'Adapt for new code'
     visit "/users/new"
     attach_file("Avatar url", fixture_path('david.jpg'))
 
