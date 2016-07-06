@@ -1,61 +1,44 @@
 (function() {
-  var lastUploadId = 0;
-  var finishedUploads = [];
+  var MountableFileServerUploader = function(options) {
+    return {
+      url: options.url,
+      uploadFile: function(options) {
 
-  var dispatchEvent = function($element, name, payload) {
-    var event = document.createEvent('CustomEvent');
+        var file = options.file;
+        var type = options.type;
+        var onStart = options.onStart || function() {};
+        var onProgress = options.onProgress || function() {};
+        var onSuccess = options.onSuccess || function() {};
+        var xhr = new XMLHttpRequest();
+        var formData = new FormData();
 
-    event.initCustomEvent(name, true, false, payload);
-    $element.dispatchEvent(event);
-  };
+        formData.append('file', file);
+        formData.append('type', type);
 
-  var uploadFile = function($element, file, uploadId) {
-    var url = $element.getAttribute('data-endpoint');
-    var type = $element.getAttribute('data-type');
-    var xhr = new XMLHttpRequest();
-    var formData = new FormData();
+        xhr.open('POST', this.url, true);
 
-    formData.append('file', file);
-    formData.append('type', type);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 201) {
+            var response = JSON.parse(xhr.responseText);
 
-    xhr.open('POST', url, true);
+            response.original_filename = file.name;
 
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        finishedUploads.push(uploadId);
+            onSuccess(response);
+          }
+        }
 
-        response = JSON.parse(xhr.responseText);
-
-        dispatchEvent($element, 'upload:success', {
-          uploadId: uploadId,
-          uid: response.uid,
-          wasLastUpload: lastUploadId == finishedUploads.length
+        xhr.upload.addEventListener('progress', function(progressEvent) {
+          if (progressEvent.lengthComputable) {
+            onProgress(progressEvent);
+          }
         });
+
+        xhr.send(formData);
+
+        onStart();
       }
-    }
-
-    xhr.upload.addEventListener('progress', function(progressEvent) {
-      if (progressEvent.lengthComputable) {
-        dispatchEvent($element, 'upload:progress', {
-          uploadId: uploadId,
-          progress: progressEvent
-        });
-      }
-    });
-
-    xhr.send(formData);
-
-    dispatchEvent($element, 'upload:start', {
-      uploadId: uploadId,
-      file: file
-    });
+    };
   };
 
-  var internalUploadFiles = function($element, files) {
-    for (var i = 0; i < files.length; i++) {
-      uploadFile($element, files[i], ++lastUploadId);
-    }
-  };
-
-  window.uploadFiles = internalUploadFiles;
+  window.MountableFileServerUploader =  MountableFileServerUploader;
 })();
