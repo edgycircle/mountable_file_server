@@ -20,13 +20,13 @@ class MetadataTest < UnitTestCase
   def test_image_height
     subject = Metadata.for_path(fixture_path('image.png'))
     result = subject.height
-    assert_equal 62, result
+    assert_equal 234, result
   end
 
   def test_image_width
     subject = Metadata.for_path(fixture_path('image.png'))
     result = subject.width
-    assert_equal 62, result
+    assert_equal 269, result
   end
 
   def test_image_hash
@@ -35,8 +35,8 @@ class MetadataTest < UnitTestCase
     assert_equal({
       content_type: 'image/png',
       size: File.size(fixture_path('image.png')),
-      height: 62,
-      width: 62
+      height: 234,
+      width: 269
     }, result)
   end
 

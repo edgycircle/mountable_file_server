@@ -27,8 +27,8 @@ class TestServer < IntegrationTestCase
     assert_equal "http://test.test/uploads/#{result[:fid]}", result[:url]
     assert_equal File.size(fixture_path('image.png')), result[:metadata][:size]
     assert_equal 'image/png', result[:metadata][:content_type]
-    assert_equal 62, result[:metadata][:width]
-    assert_equal 62, result[:metadata][:height]
+    assert_equal 269, result[:metadata][:width]
+    assert_equal 234, result[:metadata][:height]
   end
 
   def test_temporary_file_download
