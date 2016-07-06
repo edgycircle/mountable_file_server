@@ -33,7 +33,7 @@ module MountableFileServer
       parameters[:content_type] = `file --brief --mime-type #{path}`.strip
       parameters[:size] = File.size(path)
 
-      if ['image/png', 'image/jpeg', 'image/gif'].include?(parameters[:content_type])
+      if ['image/png', 'image/jpeg', 'image/gif', 'image/tiff'].include?(parameters[:content_type])
         dimensions = Dimensions.dimensions(path)
         parameters[:width] = dimensions[0]
         parameters[:height] = dimensions[1]
