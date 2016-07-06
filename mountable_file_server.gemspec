@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "sqlite3", "~> 1.3.10"
   spec.add_development_dependency "poltergeist", "~> 1.6.0"
   spec.add_development_dependency "rack-test", "~> 0.6.3"
+  spec.add_development_dependency "webmock", "~> 2.1.0"
 
   spec.add_runtime_dependency "rack", "~> 1.6"
   spec.add_runtime_dependency "sinatra", "~> 1.4.5"
