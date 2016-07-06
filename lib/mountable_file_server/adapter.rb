@@ -1,8 +1,12 @@
+require 'mountable_file_server/storage'
+require 'mountable_file_server/unique_identifier'
+require 'mountable_file_server/file_accessor'
+
 module MountableFileServer
   class Adapter
     attr_reader :configuration
 
-    def initialize(configuration = MountableFileServer.configuration)
+    def initialize(configuration = MountableFileServer.config)
       @configuration = configuration
     end
 
@@ -23,14 +27,15 @@ module MountableFileServer
       Storage.new(configuration).move_to_permanent_storage uid
     end
 
-    def remove_from_permanent_storage(uid)
+    def remove_from_storage(uid)
       uid = UniqueIdentifier.new uid
-      Storage.new(configuration).remove_from_permanent_storage uid
+      Storage.new(configuration).remove_from_storage uid
     end
 
     def url_for(uid)
-      uid = UniqueIdentifier.new uid
-      FileAccessor.new(uid, configuration).url
+      # uid = UniqueIdentifier.new uid
+      # FileAccessor.new(uid, configuration).url
+      configuration.base_url + uid
     end
 
     def pathname_for(uid)

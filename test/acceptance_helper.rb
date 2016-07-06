@@ -16,12 +16,8 @@ class AcceptanceTestCase < MiniTest::Test
   include PathHelper
 
   def setup
-    FileUtils.mkdir_p MountableFileServer.configuration.stored_at
-    FileUtils.mkdir_p File.join(MountableFileServer.configuration.stored_at, 'tmp')
-    FileUtils.mkdir_p File.join(MountableFileServer.configuration.stored_at, 'public')
   end
 
   def teardown
-    FileUtils.rm_rf MountableFileServer.configuration.stored_at
   end
 end

@@ -26,10 +26,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "sqlite3", "~> 1.3.10"
   spec.add_development_dependency "poltergeist", "~> 1.6.0"
   spec.add_development_dependency "rack-test", "~> 0.6.3"
-  spec.add_development_dependency "bogus", "~> 0.1.6"
 
   spec.add_runtime_dependency "rack", "~> 1.6"
   spec.add_runtime_dependency "sinatra", "~> 1.4.5"
-  spec.add_runtime_dependency "mini_magick"
-  spec.add_runtime_dependency "url_safe_base64"
+  spec.add_runtime_dependency "dry-configurable", "~> 0.1.6"
+  spec.add_runtime_dependency "dimensions", "~> 1.3.0"
 end

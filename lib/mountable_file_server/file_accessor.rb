@@ -7,17 +7,17 @@ module MountableFileServer
   class FileAccessor
     attr_reader :uid, :configuration
 
-    def initialize(uid, configuration = MountableFileServer.configuration)
+    def initialize(uid, configuration = MountableFileServer.config)
       @uid = uid
       @configuration = configuration
     end
 
     def temporary_pathname
-      Pathname(configuration.stored_at) + 'tmp' + uid
+      Pathname(configuration.storage_path) + 'tmp' + uid
     end
 
     def permanent_pathname
-      Pathname(configuration.stored_at) + uid.type +  uid
+      Pathname(configuration.storage_path) + uid.type + uid
     end
 
     def pathname
@@ -31,7 +31,7 @@ module MountableFileServer
     def url
       raise NotAccessibleViaURL unless uid.public?
 
-      URI.new (Pathname(configuration.mounted_at) + uid).to_s
+      URI.new (Pathname(configuration.base_url) + uid).to_s
     end
 
     private

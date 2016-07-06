@@ -2,7 +2,7 @@ module MountableFileServer
   class Storage
     attr_reader :configuration
 
-    def initialize(configuration = MountableFileServer.configuration)
+    def initialize(configuration = MountableFileServer.config)
       @configuration = configuration
     end
 
@@ -26,8 +26,8 @@ module MountableFileServer
       source.rename destination
     end
 
-    def remove_from_permanent_storage(uid)
-      source = FileAccessor.new(uid, configuration).permanent_pathname
+    def remove_from_storage(uid)
+      source = FileAccessor.new(uid, configuration).pathname
       source.delete
     end
   end

@@ -2,23 +2,30 @@ require 'unit_helper'
 require 'stringio'
 require 'tempfile'
 
+require 'mountable_file_server/storage'
+require 'mountable_file_server/unique_identifier'
+require 'mountable_file_server/file_accessor'
+
 class StorageTest < UnitTestCase
-  attr_reader :configuration, :uid, :file_accessor, :storage
+  attr_reader :uid, :file_accessor, :storage
 
   Storage = MountableFileServer::Storage
   UniqueIdentifier = MountableFileServer::UniqueIdentifier
   FileAccessor = MountableFileServer::FileAccessor
-  Configuration = MountableFileServer::Configuration
 
   def setup
-    @configuration = Configuration.new '', Dir.mktmpdir
+    MountableFileServer.configure do |config|
+      config.base_url = 'http://test.test/uploads/'
+      config.storage_path = Dir.mktmpdir
+    end
+
     @uid = UniqueIdentifier.new 'public-test.txt'
-    @file_accessor = FileAccessor.new uid, configuration
-    @storage = Storage.new configuration
+    @file_accessor = FileAccessor.new uid
+    @storage = Storage.new
   end
 
   def teardown
-    Pathname(configuration.stored_at).rmtree
+    Pathname(MountableFileServer.config.storage_path).rmtree
   end
 
   def test_store_io_input_temporary
@@ -65,13 +72,24 @@ class StorageTest < UnitTestCase
   end
 
   def test_remove_from_permanent_storage
-    permanent_pathname = file_accessor.permanent_pathname
-    permanent_pathname.dirname.mkpath
+    pathname = file_accessor.permanent_pathname
+    pathname.dirname.mkpath
 
-    File.open(permanent_pathname, 'w') { |f| f.write 'test' }
+    File.open(pathname, 'w') { |f| f.write 'test' }
 
-    storage.remove_from_permanent_storage uid
+    storage.remove_from_storage uid
 
     refute file_accessor.permanent_pathname.file?
+  end
+
+  def test_remove_from_temporary_storage
+    pathname = file_accessor.temporary_pathname
+    pathname.dirname.mkpath
+
+    File.open(pathname, 'w') { |f| f.write 'test' }
+
+    storage.remove_from_storage uid
+
+    refute file_accessor.temporary_pathname.file?
   end
 end
