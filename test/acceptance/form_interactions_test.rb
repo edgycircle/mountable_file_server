@@ -1,6 +1,12 @@
 require 'acceptance_helper'
 
 class TestFormInteractions < AcceptanceTestCase
+  def setup
+    MountableFileServer.configure do |config|
+      config.base_url = "/uploads"
+    end
+  end
+
   def test_upload_client_side_interaction
     visit "/users/new"
     attach_file("Avatar url", fixture_path('david.jpg'))
@@ -13,7 +19,6 @@ class TestFormInteractions < AcceptanceTestCase
   end
 
   def test_upload
-    skip 'Adapt for new code'
     visit "/users/new"
     fill_in "Name", with: "David"
     attach_file "Avatar url", fixture_path('david.jpg')

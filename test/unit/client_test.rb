@@ -24,10 +24,10 @@ class ClientTest < UnitTestCase
     fid = 'public-123.png'
     subject = Client.new
 
-    stub_request(:post, 'http://test.test/uploads/public-123.png')
+    stub_request(:post, 'http://test.test/uploads/public-123.png/store-permanent')
     subject.move_to_permanent_storage(fid)
 
-    assert_requested :post, "http://test.test/uploads/#{fid}", times: 1
+    assert_requested :post, "http://test.test/uploads/#{fid}/store-permanent", times: 1
   end
 
   def test_remove_from_storage

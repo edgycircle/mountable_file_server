@@ -1,5 +1,5 @@
 MountableFileServer.configure do |config|
-  config.base_url = 'http://test.test/uploads/'
+  config.base_url = '/uploads/'
 
   if Rails.env.test?
     config.storage_path = File.join(Rails.root, 'tmp', 'test-uploads')
