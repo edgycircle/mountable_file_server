@@ -44,6 +44,8 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    client = MountableFileServer::Client.new
+    client.remove_from_storage @user.avatar_url
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end

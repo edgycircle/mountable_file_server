@@ -22,11 +22,19 @@ module MountableFileServer
     end
 
     def remove_from_storage(fid)
+      if MountableFileServer.config.base_url.start_with?('http')
       uri = ::URI.parse(MountableFileServer.config.base_url)
       http = Net::HTTP.new(uri.host, uri.port)
       request = Net::HTTP::Delete.new(uri.request_uri + fid)
 
       http.request(request)
+      else
+      MountableFileServer::Server.new.call({
+        "rack.input" => StringIO.new(""),
+        "REQUEST_METHOD"=> "DELETE",
+        "PATH_INFO"=> "/#{fid}",
+      })
+      end
     end
 
     def url_for(fid)
