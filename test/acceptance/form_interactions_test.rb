@@ -1,6 +1,14 @@
 require 'acceptance_helper'
 
 class TestFormInteractions < AcceptanceTestCase
+  def setup
+    MountableFileServer.configure do |config|
+      config.base_url = "/uploads"
+    end
+
+    User.destroy_all
+  end
+
   def test_upload_client_side_interaction
     visit "/users/new"
     attach_file("Avatar url", fixture_path('david.jpg'))
@@ -13,7 +21,6 @@ class TestFormInteractions < AcceptanceTestCase
   end
 
   def test_upload
-    skip 'Adapt for new code'
     visit "/users/new"
     fill_in "Name", with: "David"
     attach_file "Avatar url", fixture_path('david.jpg')
@@ -26,5 +33,20 @@ class TestFormInteractions < AcceptanceTestCase
 
     assert_equal 200, page.status_code
     assert_match /^image\//, page.response_headers['Content-Type']
+  end
+
+  def test_remove_upload
+    visit "/users/new"
+    fill_in "Name", with: "David"
+    attach_file "Avatar url", fixture_path('david.jpg')
+
+    sleep 0.1
+
+    click_button "Create User"
+
+    visit "/users"
+    click_link "Destroy"
+
+    assert_equal 200, page.status_code
   end
 end
