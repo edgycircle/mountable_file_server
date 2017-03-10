@@ -111,11 +111,8 @@ Returns the URL for an uploaded file. Only works for public files, if you pass t
 `MountableFileServer::Adapter#pathname_for(id)`  
 Returns a [Pathname](http://ruby-doc.org/stdlib-2.2.2/libdoc/pathname/rdoc/Pathname.html) object for the uploaded file. The pathname will always point to the file on disk independent from the files type or current storage location.
 
-## Example
-TBW
+# Publish on RubyGems.org
 
-## Deployment
-TBW
-
-## License
-[MIT](https://github.com/stravid/mountable_file_server/blob/master/LICENSE.txt)
+1. Increment `lib/mountable_image_server/version.rb` to your liking.
+2. Make a Git commit.
+3. Run `bundle exec rake release`.
