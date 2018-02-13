@@ -1,4 +1,4 @@
-# 0.X.0
+# 2.0.0
 * Remove HTTP endpoints for moving and deleting uploads due to security concerns.
 * Return 404 for unknown or malformed FIDs.
 
