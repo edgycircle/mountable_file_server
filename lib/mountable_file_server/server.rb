@@ -29,21 +29,5 @@ module MountableFileServer
       pathname = adapter.pathname_for(fid)
       send_file pathname
     end
-
-    post '/:fid/store-permanent' do |fid|
-      adapter = Adapter.new
-      adapter.move_to_permanent_storage(fid)
-
-      content_type :json
-      status 200
-    end
-
-    delete '/:fid' do |fid|
-      adapter = Adapter.new
-      adapter.remove_from_storage(fid)
-
-      content_type :json
-      status 200
-    end
   end
 end

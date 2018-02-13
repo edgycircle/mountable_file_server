@@ -47,6 +47,8 @@ class TestServer < IntegrationTestCase
   end
 
   def test_permanent_storage
+    skip 'Needs a secure implementation and integration instructions'
+
     post '/', {
       file: Rack::Test::UploadedFile.new(fixture_path('image.png'), 'image/jpeg'),
       type: 'public'
@@ -60,6 +62,8 @@ class TestServer < IntegrationTestCase
   end
 
   def test_permanent_file_download
+    skip 'Needs a secure implementation and integration instructions'
+
     post '/', {
       file: Rack::Test::UploadedFile.new(fixture_path('image.png'), 'image/jpeg'),
       type: 'public'
@@ -76,6 +80,8 @@ class TestServer < IntegrationTestCase
   end
 
   def test_file_deletion
+    skip 'Needs a secure implementation and integration instructions'
+
     post '/', {
       file: Rack::Test::UploadedFile.new(fixture_path('image.png'), 'image/jpeg'),
       type: 'public'
