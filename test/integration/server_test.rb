@@ -46,6 +46,20 @@ class TestServer < IntegrationTestCase
     end
   end
 
+  def test_download_of_unknown_fid
+    fid = 'public-unknown.png'
+    get fid
+
+    assert_equal 404, last_response.status
+  end
+
+  def test_download_of_malformed_fid
+    fid = 'bla.png'
+    get fid
+
+    assert_equal 404, last_response.status
+  end
+
   def test_permanent_storage
     skip 'Needs a secure implementation and integration instructions'
 

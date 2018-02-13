@@ -2,11 +2,14 @@ require 'securerandom'
 
 module MountableFileServer
   UnknownType = Class.new(ArgumentError)
+  MalformedIdentifier = Class.new(ArgumentError)
 
   class UniqueIdentifier < String
     attr_reader :type, :filename
 
     def initialize(string)
+      raise MalformedIdentifier.new unless /(\w+)-(.+)$/.match(string)
+
       @type, @filename = /(\w+)-(.+)$/.match(string).captures
 
       raise UnknownType.new(type) unless known_type?

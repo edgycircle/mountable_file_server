@@ -25,9 +25,13 @@ module MountableFileServer
     end
 
     get '/:fid' do |fid|
-      adapter = Adapter.new
-      pathname = adapter.pathname_for(fid)
-      send_file pathname
+      begin
+        adapter = Adapter.new
+        pathname = adapter.pathname_for(fid)
+        send_file pathname
+      rescue MissingFile, MalformedIdentifier
+        status 404
+      end
     end
   end
 end

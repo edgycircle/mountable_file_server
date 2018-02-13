@@ -1,3 +1,7 @@
+# 0.X.0
+* Remove HTTP endpoints for moving and deleting uploads due to security concerns.
+* Return 404 for unknown or malformed FIDs.
+
 # 0.0.2 - 24.08.2015
 * Internal refactorings.
 * Introduce `Adapter` class to have one point of contact.
