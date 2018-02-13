@@ -1,3 +1,6 @@
+# 2.2.0
+* Relax Sinatra dependency so Ruby on Rails 4 can use Rack 1.X
+
 # 2.0.0
 * Remove HTTP endpoints for moving and deleting uploads due to security concerns.
 * Return 404 for unknown or malformed FIDs.
