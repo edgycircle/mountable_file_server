@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rack-test", "~> 0.6.3"
   spec.add_development_dependency "webmock", "~> 2.1.0"
 
-  spec.add_runtime_dependency "sinatra", "~> 2.0.0.rc1"
+  spec.add_runtime_dependency "sinatra", "~> 2.0.0"
   spec.add_runtime_dependency "dry-configurable", "~> 0.1.6"
   spec.add_runtime_dependency "dimensions", "~> 1.3.0"
 end
