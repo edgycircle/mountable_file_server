@@ -4,7 +4,7 @@ Mountable File Server can be used with any Ruby (on Rails) application and it re
 app only stores reference to uploaded file
 
 ## MountableFileServer::Server
-The core of Mountable File Server (MFS) is a small HTTP API that accepts file uploads and offers endpoints to interact with uploaded files. While the frontend deals directly with the HTTP API, your Ruby application will want to use the Ruby Client `MountableFileServer::Client`.
+The core of Mountable File Server (MFS) is a small HTTP API that accepts file uploads and offers endpoints to interact with uploaded files. While the frontend deals directly with the HTTP API, your Ruby application will want to use the Ruby adapter `MountableFileServer::Adapter`.
 
 
 

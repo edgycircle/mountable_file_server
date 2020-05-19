@@ -1,3 +1,6 @@
+# Unreleased
+* **Breaking Change**: Remove `MountableFileServer::Client`. Use `MountableFileServer::Adapter` instead.
+
 # 2.1.0
 * Relax Sinatra dependency so Ruby on Rails 4 can use Rack 1.X
 
