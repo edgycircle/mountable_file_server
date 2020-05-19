@@ -15,7 +15,7 @@ class TestFormInteractions < AcceptanceTestCase
 
     sleep 0.1
 
-    assert_match /public-.*.jpg/, find('.js-mountable-file-server-input input[type=hidden]', visible: false).value
+    assert_match(/public-.*.jpg/, find('.js-mountable-file-server-input input[type=hidden]', visible: false).value)
     assert has_content?("Upload started.")
     assert has_content?("Upload succeeded.")
   end
@@ -32,7 +32,7 @@ class TestFormInteractions < AcceptanceTestCase
     visit find("img")[:src]
 
     assert_equal 200, page.status_code
-    assert_match /^image\//, page.response_headers['Content-Type']
+    assert_match(/^image\//, page.response_headers['Content-Type'])
   end
 
   def test_remove_upload
