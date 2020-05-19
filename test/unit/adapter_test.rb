@@ -1,10 +1,20 @@
 require 'unit_helper'
+require 'mocha/minitest'
 require 'stringio'
 require 'pathname'
 
 class AdapterTest < UnitTestCase
   UniqueIdentifier = MountableFileServer::UniqueIdentifier
   Adapter = MountableFileServer::Adapter
+
+  class Configuration
+    attr_reader :base_url, :storage_path
+
+    def initialize(base_url, storage_path = '')
+      @base_url = base_url
+      @storage_path = storage_path
+    end
+  end
 
   def setup
     @stored_at = Dir.mktmpdir
@@ -15,7 +25,6 @@ class AdapterTest < UnitTestCase
   end
 
   def test_uid_within_directories_when_storing_temporary
-    skip 'Adapt for new code'
     io = StringIO.new 'test'
     adapter = Adapter.new configuration
     random_identifiers = [
@@ -23,7 +32,7 @@ class AdapterTest < UnitTestCase
       UniqueIdentifier.new('public-a.txt'),
       UniqueIdentifier.new('public-b.txt')
     ]
-    stub(UniqueIdentifier).generate_for('public', '.txt') { random_identifiers.shift }
+    UniqueIdentifier.stubs(:generate_for).returns(*random_identifiers)
 
     identifier_a = adapter.store_temporary io, 'public', '.txt'
     identifier_b = adapter.store_temporary io, 'public', '.txt'
@@ -33,7 +42,6 @@ class AdapterTest < UnitTestCase
   end
 
   def test_uid_within_directories_when_storing_permanent
-    skip 'Adapt for new code'
     io = StringIO.new 'test'
     adapter = Adapter.new configuration
     random_identifiers = [
@@ -41,7 +49,7 @@ class AdapterTest < UnitTestCase
       UniqueIdentifier.new('public-a.txt'),
       UniqueIdentifier.new('public-b.txt')
     ]
-    stub(UniqueIdentifier).generate_for('public', '.txt') { random_identifiers.shift }
+    UniqueIdentifier.stubs(:generate_for).returns(*random_identifiers)
 
     identifier_a = adapter.store_permanent io, 'public', '.txt'
     identifier_b = adapter.store_permanent io, 'public', '.txt'
@@ -51,7 +59,6 @@ class AdapterTest < UnitTestCase
   end
 
   def test_url_of_public_uid_is_returned
-    skip 'Adapt for new code'
     configuration = Configuration.new '/abc'
 
     [
@@ -63,7 +70,6 @@ class AdapterTest < UnitTestCase
   end
 
   def test_private_uids_do_not_have_urls
-    skip 'Adapt for new code'
     [
       'private-test.png',
       UniqueIdentifier.new('private-test.png')
@@ -75,7 +81,6 @@ class AdapterTest < UnitTestCase
   end
 
   def test_path_for_object_uid_is_returned
-    skip 'Adapt for new code'
     [
       { directory: 'tmp', filename: 'public-' },
       { directory: 'tmp', filename: 'private-' },
@@ -97,7 +102,6 @@ class AdapterTest < UnitTestCase
   end
 
   def test_path_for_string_uid_is_returned
-    skip 'Adapt for new code'
     [
       { directory: 'tmp', filename: 'public-' },
       { directory: 'tmp', filename: 'private-' },
