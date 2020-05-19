@@ -16,4 +16,3 @@ mkmf.log
 *.sqlite3
 test/rails-dummy/tmp/
 test/rails-dummy/uploads/
-.ruby-version
