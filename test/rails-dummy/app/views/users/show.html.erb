@@ -7,7 +7,7 @@
 
 <p>
   <strong>Avatar:</strong>
-  <%= image_tag @client.url_for(@user.avatar_url) %>
+  <%= image_tag @adapter.url_for(@user.avatar_url) %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
