@@ -5,17 +5,17 @@ class UniqueIdentifierTest < UnitTestCase
 
   def test_generate_uid_for_extension
     uid = UniqueIdentifier.generate_for 'public', '.png'
-    assert_match /\w+\.png$/, uid
+    assert_match(/\w+\.png$/, uid)
   end
 
   def test_generate_public_uid
     uid = UniqueIdentifier.generate_for 'public', '.png'
-    assert_match /^public-\w+/, uid
+    assert_match(/^public-\w+/, uid)
   end
 
   def test_generate_private_uid
     uid = UniqueIdentifier.generate_for 'private', '.png'
-    assert_match /^private-\w+/, uid
+    assert_match(/^private-\w+/, uid)
   end
 
   def test_generate_accepts_only_known_types
