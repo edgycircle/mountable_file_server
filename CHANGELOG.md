@@ -1,4 +1,4 @@
-# 2.2.0
+# 2.1.0
 * Relax Sinatra dependency so Ruby on Rails 4 can use Rack 1.X
 
 # 2.0.0
