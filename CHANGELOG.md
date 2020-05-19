@@ -1,4 +1,4 @@
-# Unreleased
+# 3.0.0
 * **Breaking Change**: Remove `MountableFileServer::Client`. Use `MountableFileServer::Adapter` instead.
 
 # 2.1.0
