@@ -1,3 +1,4 @@
+require 'mountable_file_server/uri'
 require 'pathname'
 
 module MountableFileServer

@@ -1,3 +1,6 @@
+# 3.0.1
+* Repair broken `FileAccessor` class.
+
 # 3.0.0
 * **Breaking Change**: Remove `MountableFileServer::Client`. Use `MountableFileServer::Adapter` instead.
 
