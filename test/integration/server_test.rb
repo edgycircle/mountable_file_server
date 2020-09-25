@@ -31,6 +31,24 @@ class TestServer < IntegrationTestCase
     assert_equal 234, result[:metadata][:height]
   end
 
+  def test_private_file_upload
+    post '/', {
+      file: Rack::Test::UploadedFile.new(fixture_path('image.png'), 'image/jpeg'),
+      type: 'private'
+    }
+
+    result = JSON.parse(last_response.body, symbolize_names: true)
+
+    assert_equal 201, last_response.status
+    assert_equal 'application/json', last_response.headers['Content-Type']
+    assert_match(/private-\w{32}\.png/, result[:fid])
+    assert_equal nil, result[:url]
+    assert_equal File.size(fixture_path('image.png')), result[:metadata][:size]
+    assert_equal 'image/png', result[:metadata][:content_type]
+    assert_equal 269, result[:metadata][:width]
+    assert_equal 234, result[:metadata][:height]
+  end
+
   def test_temporary_file_download
     post '/', {
       file: Rack::Test::UploadedFile.new(fixture_path('image.png'), 'image/jpeg'),

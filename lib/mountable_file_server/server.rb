@@ -11,7 +11,7 @@ module MountableFileServer
       pathname = Pathname(params[:file][:tempfile].path)
       type = params[:type]
       fid = adapter.store_temporary(pathname, type, pathname.extname)
-      url = adapter.url_for(fid)
+      url = adapter.url_for(fid) if fid.public?
       metadata = Metadata.for_path(pathname)
 
       content_type :json

@@ -39,7 +39,7 @@ module MountableFileServer
         parameters[:height] = dimensions[1]
       end
 
-      new(parameters)
+      new(**parameters)
     end
   end
 end
