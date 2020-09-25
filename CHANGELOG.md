@@ -1,3 +1,7 @@
+# 3.0.2
+* Fix deprecation warning when calling metadata class initializer with keyword arguments.
+* Don't break when uploading a private file.
+
 # 3.0.1
 * Repair broken `FileAccessor` class.
 
