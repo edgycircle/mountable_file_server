@@ -1,3 +1,6 @@
+# 3.0.3
+* Relax required version number of `dry-configurable` dependency
+
 # 3.0.2
 * Fix deprecation warning when calling metadata class initializer with keyword arguments.
 * Don't break when uploading a private file.

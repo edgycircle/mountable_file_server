@@ -29,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "mocha", "1.11.2"
 
   spec.add_runtime_dependency "sinatra", ">= 1.4.8"
-  spec.add_runtime_dependency "dry-configurable", "~> 0.1.6"
+  spec.add_runtime_dependency "dry-configurable", ">= 0.1.6"
   spec.add_runtime_dependency "dimensions", "~> 1.3.0"
 end
