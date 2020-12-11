@@ -16,6 +16,7 @@ pkgs.mkShell {
     zlib
     phantomjs
     rubyPackages_2_5.nokogiri
+    libiconv
   ];
 
   shellHook = ''
